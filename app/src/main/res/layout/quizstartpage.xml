@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundpurple"
+    tools:context=".QuizStartPage">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:contentDescription="@string/desc"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/np3" />
+
+        <ImageView
+            android:id="@+id/quizIcon"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="145dp"
+            android:layout_marginStart="145dp"
+            android:layout_marginTop="60dp"
+            android:contentDescription="@string/desc"
+            android:padding="15dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/testquiz" />
+
+        <TextView
+            android:id="@+id/quizTitle"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="0dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="176dp"
+            android:ems="0"
+            android:gravity="center"
+            android:text="Take a Quiz"
+            android:textColor="@android:color/primary_text_dark"
+            android:textSize="38sp"
+            app:fontFamily="@font/roboto_black" />
+
+        <TextView
+            android:id="@+id/quizdesc"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="214dp"
+            android:ems="0"
+            android:gravity="center"
+            android:text="find out whats for you!"
+            android:textAlignment="center"
+            android:textColor="@android:color/primary_text_dark"
+            android:textSize="18sp"
+            app:fontFamily="@font/roboto_black" />
+
+        <TextView
+            android:id="@+id/intro1"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="205dp"
+            android:text="Your Interest and Passions allows you to enjoy what you're going to do or study."
+            android:textAlignment="center"
+            android:textColor="@android:color/primary_text_dark"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/intro2"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="152dp"
+            android:text="Your Values Guides you to believe what's important."
+            android:textAlignment="center"
+            android:textColor="@android:color/primary_text_dark"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/intro3"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="100dp"
+            android:text="Combining both elements, we'll figure what fits well for you!"
+            android:textAlignment="center"
+            android:textColor="@android:color/primary_text_dark"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/startquizbutton"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="end"
+            android:layout_marginBottom="35dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/buttonshape"
+            android:gravity="center"
+            android:text="@string/start"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

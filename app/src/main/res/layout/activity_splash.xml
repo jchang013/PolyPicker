@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StartPage">
+
+    <RelativeLayout
+        android:layout_width="414dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/np_splash"
+        tools:layout_editor_absoluteX="-3dp"
+        tools:layout_editor_absoluteY="381dp">
+
+        <TextView
+            android:id="@+id/lbNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="293dp"
+            android:layout_marginLeft="293dp"
+            android:layout_marginBottom="34dp"
+            android:fontFamily="@font/roboto_black"
+            android:text="let's go!"
+            android:textAlignment="viewStart"
+            android:textColor="#6e6eff"
+            android:textSize="18sp" />
+
+        <ImageButton
+            android:id="@+id/btnNext2"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="25dp"
+            android:background="@android:color/transparent"
+            android:padding="10dp"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/arrowright" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="98dp"
+            android:layout_marginEnd="97dp"
+            android:layout_marginBottom="150dp"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/logo_pp" />
+
+        <TextView
+            android:id="@+id/lbSub"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="99dp"
+            android:layout_marginEnd="96dp"
+            android:layout_marginBottom="123dp"
+            android:padding="5dp"
+            android:text="your poly guru in one place."
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.5"/>
+
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

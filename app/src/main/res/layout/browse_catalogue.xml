@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="410dp"
+    android:layout_height="658dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent">
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="24dp"
+        android:gravity="start"
+        android:background="@drawable/arrowleft"
+        android:padding="10dp"
+        android:scaleType="centerInside"
+        android:textAlignment="textStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/lbBack"
+        android:layout_width="43dp"
+        android:layout_height="27dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
+        android:layout_marginBottom="24dp"
+        android:text="Back"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="409dp"
+        android:layout_height="180dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TextView
+            android:id="@+id/lbFilter"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_alignLeft="@id/searchView"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/searchView"
+            android:layout_marginLeft="25dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="65dp"
+            android:layout_weight="0"
+            android:ems="10"
+            android:gravity="start"
+            android:padding="5dp"
+            android:text="Filters"
+            android:textAlignment="viewStart"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lbCOP"
+            android:layout_width="123dp"
+            android:layout_height="30dp"
+            android:layout_alignLeft="@id/searchView"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/searchView"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="149dp"
+            android:ems="10"
+            android:padding="5dp"
+            android:text="Cut-Off Point"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="357dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/searchbg"
+            android:focusableInTouchMode="true"
+            android:iconifiedByDefault="true"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:queryHint="Search Here"
+            app:iconifiedByDefault="true"
+            app:queryHint="Search Here">
+
+        </SearchView>
+
+        <Button
+            android:id="@+id/btnPolyFilter"
+            android:layout_width="140dp"
+            android:layout_height="35dp"
+            android:layout_alignEnd="@+id/lbFilter"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@id/lbFilter"
+            android:layout_marginEnd="-45dp"
+            android:layout_marginRight="-45dp"
+            android:layout_marginTop="95dp"
+            android:background="@drawable/buttonshape_notselected"
+            android:padding="5dp"
+            android:text="Polytechnics +"
+            android:textAllCaps="false" />
+
+        <TextView
+            android:id="@+id/selectedPoly"
+            android:layout_width="103dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/searchView"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/searchView"
+            android:layout_marginLeft="53dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="130dp"
+            android:ems="10"
+            android:padding="5dp"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="#6e6eff"
+            android:textSize="12sp"
+            android:visibility="invisible"
+            tools:layout_editor_absoluteX="79dp"
+            tools:layout_editor_absoluteY="144dp" />
+
+        <TextView
+            android:id="@+id/selectedCat"
+            android:layout_width="103dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/searchView"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/searchView"
+            android:layout_marginLeft="226dp"
+            android:layout_marginStart="226dp"
+            android:layout_marginTop="130dp"
+            android:ems="10"
+            android:padding="5dp"
+            android:text="selected"
+            android:textAlignment="center"
+            android:textColor="#6e6eff"
+            android:textSize="12sp"
+            android:visibility="invisible"
+            tools:layout_editor_absoluteX="79dp"
+            tools:layout_editor_absoluteY="144dp" />
+
+        <Button
+            android:id="@+id/btnCourseCatFilter"
+            android:layout_width="160dp"
+            android:layout_height="35dp"
+            android:layout_alignEnd="@+id/lbFilter"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@id/lbFilter"
+            android:layout_marginEnd="-225dp"
+            android:layout_marginRight="-225dp"
+            android:layout_marginTop="95dp"
+            android:background="@drawable/buttonshape_notselected"
+            android:padding="5dp"
+            android:text="Course Category +"
+            android:textAllCaps="false" />
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="202dp"
+            android:layout_height="32dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="170dp"
+            android:layout_marginStart="170dp"
+            android:layout_marginTop="148dp"
+            android:max="26"
+            android:min="7"
+            android:progress="10" />
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="408dp"
+        android:layout_height="407dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="104dp"
+        android:paddingLeft="40dp"
+        android:paddingTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="180dp">
+
+    </android.support.v7.widget.RecyclerView>
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">PolyPicker</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="start_image_button">string</string>
+    <string name="intro1">Your Interest and Passions allows you to enjoy what you\'re going to do or study.</string>
+    <string name="intro2">Your Values Guides you to believe what\'s important.</string>
+    <string name="intro3">Combining both elements, we\'ll figure what fits well for you!</string>
+    <string name="takequiz">Take a Quiz</string>
+    <string name="quizdesc">find out what\'s for you!</string>
+    <string name="start">let\'s go! →</string>
+    <string name="desc">desc</string>
+</resources>
