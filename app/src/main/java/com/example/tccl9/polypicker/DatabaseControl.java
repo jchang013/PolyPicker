@@ -16,7 +16,7 @@ public class DatabaseControl {
 
     public void insertData(String code, String name, String school, String polytechnic, String description,
                            int cutoff, String link) {
-        SQLiteDatabase dbb = myhelper.getWritableDatabase();
+        SQLiteDatabase db = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(myDbHelper.COURSE_CODE, code);
         contentValues.put(myDbHelper.COURSE_NAME, name);
@@ -26,7 +26,7 @@ public class DatabaseControl {
         contentValues.put(myDbHelper.CUTOFF, cutoff);
         contentValues.put(myDbHelper.COURSE_LINK, link);
         contentValues.put(myDbHelper.BOOKMARKED, 0);
-        dbb.insert(myDbHelper.TABLE_NAME, null, contentValues);
+        db.insert(myDbHelper.TABLE_NAME, null, contentValues);
     }
 
     public ArrayList<Course> getAllCourses() {
