@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class DatabaseControl {
     myDbHelper myhelper;
@@ -52,6 +53,22 @@ public class DatabaseControl {
 
     public void updateBookmark(String code) {
 
+    }
+
+    public ArrayList<String> polytechnicsInDatabase() {
+        HashSet<String> polytechnicsSet = new HashSet<String>();
+        ArrayList<String> polytechnicsList = new ArrayList<String>();
+        String polytechnic;
+        SQLiteDatabase db = myhelper.getReadableDatabase();
+        Cursor res = db.rawQuery("select " + myDbHelper.POLYTECHNIC +
+                                        " from " + myDbHelper.TABLE_NAME, null);
+        while(res.isAfterLast() == false) {
+            polytechnic = res.getString(res.getColumnIndex(myDbHelper.POLYTECHNIC));
+            polytechnicsSet.add(polytechnic);
+            res.moveToNext();
+        }
+        polytechnicsList.addAll(polytechnicsSet);
+        return polytechnicsList;
     }
 
     static class myDbHelper extends SQLiteOpenHelper {

@@ -21,6 +21,7 @@ public class AppIntro extends AppCompatActivity {
     ImageButton androidImageButton;
     ArrayList<Course> CourseList;
     DatabaseControl courseDatabase;
+    boolean sp = false, np = false, rp = false, nyp = false, tp = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,28 @@ public class AppIntro extends AppCompatActivity {
         setContentView(R.layout.appintro);
 
         courseDatabase = new DatabaseControl(this);
-        new getCourseData().execute();
+        if (courseDatabase.getAllCourses() == null) {
+            new getCourseData().execute();
+        } else {
+            if (courseDatabase.polytechnicsInDatabase().contains("Singapore Polytechnic")) {
+                sp = true;
+            }
+            if (courseDatabase.polytechnicsInDatabase().contains("Ngee Ann Polytechnic")) {
+                np = true;
+            }
+            if (courseDatabase.polytechnicsInDatabase().contains("Republic Polytechnic")) {
+                rp = true;
+            }
+            if (courseDatabase.polytechnicsInDatabase().contains("Nanyang Polytechnic")) {
+                nyp = true;
+            }
+            if (courseDatabase.polytechnicsInDatabase().contains("Temasek Polytechnic")) {
+                tp = true;
+            }
+            if (sp == false || np == false || rp == false || nyp == false || tp == false) {
+                new getCourseData().execute();
+            }
+        }
 
         androidImageButton = (ImageButton) findViewById(R.id.image_button_android);
         androidImageButton.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +70,6 @@ public class AppIntro extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             Toast.makeText(AppIntro.this, "Course Data is downloading", Toast.LENGTH_LONG).show();
-
         }
 
         @Override
@@ -88,5 +109,6 @@ public class AppIntro extends AppCompatActivity {
             }
             return null;
         }
+        //add method to reuse calling data.gov.sg api
     }
 }
