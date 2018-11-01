@@ -1,37 +1,90 @@
 package com.example.tccl9.polypicker;
 
 public class Course {
-    private String courseID;
-    private String sName;
-    private String cName;
-    private String pName;
-    private int aggCOPoint;
+    private String code;
+    private String name;
+    private String school;
+    private String polytechnic;
+    private String description;
+    private int cutoff;
+    private String link;
+    private int bookmark;
 
-    public Course(String courseID, int aggCOPoint, String sName, String cName, String pName){
-        this.courseID = courseID;
-        this.aggCOPoint=aggCOPoint;
-        this.sName=sName;
-        this.cName=cName;
-        this.pName=pName;
+    public Course() { }
+
+    public Course(String code, String name, String school, String polytechnic, String description,
+                  int cutoff, String link, int bookmark) {
+        this.code = code;
+        this.name = name;
+        this.school = school;
+        this.polytechnic = polytechnic;
+        this.description = description;
+        this.cutoff = cutoff;
+        this.link = link;
+        this.bookmark = bookmark;
     }
 
-    public String getCourseID(){
-        return courseID;
+    public String getCode() {
+        return this.code;
     }
 
-    public int getaggCOPoint(){
-        return aggCOPoint;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public String getsName(){
-        return sName;
+    public String getName() {
+        return this.name;
     }
 
-    public String getcName(){
-        return cName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getpName(){
-        return pName;
+    public String getSchool() {
+        return this.school;
+    }
+
+    public void setSchool() {
+        this.school = school;
+    }
+
+    public String getPolytechnic() {
+        return this.polytechnic;
+    }
+
+    public void setPolytechnic(String polytechnic) {
+        this.polytechnic = polytechnic;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getCutoff() {
+        return this.cutoff;
+    }
+
+    public void setCutoff(int cutoff) {
+        this.cutoff = cutoff;
+    }
+
+    public String getLink() {
+        return this.link;
+    }
+
+    public void setLink() {
+        this.link = link;
+    }
+
+    public int getBookmark() {
+        return this.bookmark;
+    }
+
+    public void setBookmark(int bookmark) {
+        this.bookmark = bookmark;
     }
 }

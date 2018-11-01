@@ -29,11 +29,11 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
     public void onBindViewHolder(CourseViewHolder holder, int position){
         Course course = courseList.get(position);
 
-        holder.textViewCName.setText(course.getcName());
-        holder.textViewSName.setText(course.getsName());
-        holder.textViewPName.setText(course.getpName());
-        holder.textViewAggCOPoint.setText(Integer.toString(course.getaggCOPoint()));
-        holder.textViewCourseID.setText(course.getCourseID());
+        holder.textViewCName.setText(course.getSchool());
+        holder.textViewSName.setText(course.getName());
+        holder.textViewPName.setText(course.getPolytechnic());
+        holder.textViewAggCOPoint.setText(Integer.toString(course.getCutoff()));
+        holder.textViewCourseID.setText(course.getCode());
     }
 
     @Override
