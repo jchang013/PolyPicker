@@ -92,6 +92,7 @@ public class AppIntro extends AppCompatActivity {
             if (jsonStr != null) {
                 try {
                     JSONObject jsonObj = new JSONObject(jsonStr);
+                    //JSONObject jsonResult = jsonObj.getJSONObject("result");
                     JSONArray courses = jsonObj.getJSONArray("records");
 
                     for (int i = 0; i < courses.length(); i++) {
