@@ -74,7 +74,7 @@ public class DatabaseControl {
     static class myDbHelper extends SQLiteOpenHelper {
         private static final String DATABASE_NAME = "PolyPickerDB";    // Database Name
         private static final String TABLE_NAME = "course";   // Table Name
-        private static final int DATABASE_Version = 1;    // Database Version
+        private static final int DATABASE_Version = 2;    // Database Version
         private static final String COURSE_CODE = "code";   // Column I (Primary Key)
         private static final String COURSE_NAME = "name";   // Column II
         private static final String SCHOOL = "school";      // Column III
@@ -85,7 +85,7 @@ public class DatabaseControl {
         private static final String BOOKMARKED = "bookmark";    // Column VIII
 
         private static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + " (" +
-                COURSE_CODE + " VARCHAR(5) PRIMARY KEY, " +
+                COURSE_CODE + " VARCHAR(255) PRIMARY KEY, " +
                 COURSE_NAME + " VARCHAR(255), " +
                 SCHOOL + " VARCHAR(255), " +
                 POLYTECHNIC + " VARCHAR(255), " +
@@ -106,18 +106,18 @@ public class DatabaseControl {
                 db.execSQL(CREATE_TABLE);
 
             } catch (Exception e) {
-                Message.message(context,""+e);
+                //Message.message(context,""+e);
             }
         }
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             try {
-                Message.message(context,"OnUpgrade");
+                //Message.message(context,"OnUpgrade");
                 db.execSQL(DROP_TABLE);
                 onCreate(db);
             }catch (Exception e) {
-                Message.message(context,""+e);
+                //Message.message(context,""+e);
             }
         }
     }

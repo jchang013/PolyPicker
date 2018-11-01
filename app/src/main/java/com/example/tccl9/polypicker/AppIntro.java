@@ -61,7 +61,8 @@ public class AppIntro extends AppCompatActivity {
             if (jsonStr != null) {
                 try {
                     JSONObject jsonObj = new JSONObject(jsonStr);
-                    JSONArray courses = jsonObj.getJSONArray("records");
+                    JSONObject jsonResult = jsonObj.getJSONObject("result");
+                    JSONArray courses = jsonResult.getJSONArray("records");
 
                     for (int i = 0; i < courses.length(); i++) {
                         JSONObject course = courses.getJSONObject(i);
@@ -74,10 +75,6 @@ public class AppIntro extends AppCompatActivity {
                         //int bookmark = 0;       //bookmark set as false initially
                         courseDatabase.insertData(code, name, school, "Singapore Polytechnic", description, cutoff, link);
                     }
-
-                    Toast.makeText(getApplicationContext(),
-                                "Singapore Polytechnic courses successfully downloaded",
-                                Toast.LENGTH_LONG).show();
 
                 } catch (final JSONException e) {
                     //Log.e(TAG, "Json parsing error: " + e.getMessage());
