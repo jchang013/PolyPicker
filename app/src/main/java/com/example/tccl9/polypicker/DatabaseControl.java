@@ -87,6 +87,7 @@ public class DatabaseControl {
         public void onCreate(SQLiteDatabase db) {
             try {
                 db.execSQL(CREATE_TABLE);
+
             } catch (Exception e) {
                 Message.message(context,""+e);
             }
