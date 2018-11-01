@@ -82,11 +82,6 @@ public class AppIntro extends AppCompatActivity {
             if (jsonStr != null) {
                 try {
                     JSONObject jsonObj = new JSONObject(jsonStr);
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    //JSONObject jsonResult = jsonObj.getJSONObject("result");
-=======
->>>>>>> parent of 7ee4abd... Update app/src/main/java/com/example/tccl9/polypicker/AppIntro.java
                     JSONArray courses = jsonObj.getJSONArray("records");
 
                     for (int i = 0; i < courses.length(); i++) {
@@ -98,17 +93,13 @@ public class AppIntro extends AppCompatActivity {
                         int cutoff = 0;         //add in method to return cutoff point with course code later
                         String link = course.getString("reference");
                         //int bookmark = 0;       //bookmark set as false initially
-                        courseDatabase.insertData(code, name, school, polytechnic, description, cutoff, link);
+                        courseDatabase.insertData(code, name, school, "Singapore Polytechnic", description, cutoff, link);
                     }
 
                     Toast.makeText(getApplicationContext(),
                                 "Singapore Polytechnic courses successfully downloaded",
                                 Toast.LENGTH_LONG).show();
 
-=======
-                    JSONArray spCourses = jsonObj.getJSONArray("records");
-                    //add in code to convert jsonarray to arraylist
->>>>>>> parent of 749d2b8... Modified AppIntro class and DatabaseControl class
                 } catch (final JSONException e) {
                     //Log.e(TAG, "Json parsing error: " + e.getMessage());
                     runOnUiThread(new Runnable() {
@@ -134,6 +125,6 @@ public class AppIntro extends AppCompatActivity {
             }
             return null;
         }
-        //add method to reuse calling data.gov.sg api
+
     }
 }
