@@ -18,11 +18,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class AppIntro extends AppCompatActivity {
-    private static final String spDataAPI = "https://data.gov.sg/api/action/datastore_search?resource_id=57b4ca93-3a50-4623-8aba-59c050ca8db9&limit=99";
-    private static final String npDataAPI = "";
-    private static final String rpDataAPI = "";
-    private static final String nypDataAPI = "";
-    private static final String tpDataAPI = "";
     ImageButton androidImageButton;
     ArrayList<Course> CourseList;
     DatabaseControl courseDatabase;
@@ -32,6 +27,7 @@ public class AppIntro extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.appintro);
+
         courseDatabase = new DatabaseControl(this);
         if (courseDatabase.getAllCourses() == null) {
             new getCourseData().execute();
@@ -78,20 +74,15 @@ public class AppIntro extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... arg0) {
-            if (sp == false) {
-                querySPDataAPI(spDataAPI, "Singapore Polytechnic");
-            }
-            return null;
-        }
-
-        private void querySPDataAPI(String url, String polytechnic) {
             HttpHandler spHTTP = new HttpHandler();
+            String url = "https://data.gov.sg/api/action/datastore_search?resource_id=57b4ca93-3a50-4623-8aba-59c050ca8db9&limit=99";
             String jsonStr = spHTTP.makeServiceCall(url);
-            //Log.e(TAG, "Response from url: " + jsonStr);
 
+            //Log.e(TAG, "Response from url: " + jsonStr);
             if (jsonStr != null) {
                 try {
                     JSONObject jsonObj = new JSONObject(jsonStr);
+<<<<<<< HEAD
                     //JSONObject jsonResult = jsonObj.getJSONObject("result");
                     JSONArray courses = jsonObj.getJSONArray("records");
 
@@ -111,6 +102,10 @@ public class AppIntro extends AppCompatActivity {
                                 "Singapore Polytechnic courses successfully downloaded",
                                 Toast.LENGTH_LONG).show();
 
+=======
+                    JSONArray spCourses = jsonObj.getJSONArray("records");
+                    //add in code to convert jsonarray to arraylist
+>>>>>>> parent of 749d2b8... Modified AppIntro class and DatabaseControl class
                 } catch (final JSONException e) {
                     //Log.e(TAG, "Json parsing error: " + e.getMessage());
                     runOnUiThread(new Runnable() {
@@ -134,6 +129,8 @@ public class AppIntro extends AppCompatActivity {
                     }
                 });
             }
+            return null;
         }
+        //add method to reuse calling data.gov.sg api
     }
 }
