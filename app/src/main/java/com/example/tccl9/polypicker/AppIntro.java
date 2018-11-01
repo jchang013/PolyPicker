@@ -48,6 +48,7 @@ public class AppIntro extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             Toast.makeText(AppIntro.this, "Course Data is downloading", Toast.LENGTH_LONG).show();
+
         }
 
         @Override
@@ -103,6 +104,5 @@ public class AppIntro extends AppCompatActivity {
             }
             return null;
         }
-
     }
 }
