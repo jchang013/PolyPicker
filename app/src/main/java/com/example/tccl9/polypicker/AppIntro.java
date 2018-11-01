@@ -83,7 +83,10 @@ public class AppIntro extends AppCompatActivity {
                 try {
                     JSONObject jsonObj = new JSONObject(jsonStr);
 <<<<<<< HEAD
+<<<<<<< HEAD
                     //JSONObject jsonResult = jsonObj.getJSONObject("result");
+=======
+>>>>>>> parent of 7ee4abd... Update app/src/main/java/com/example/tccl9/polypicker/AppIntro.java
                     JSONArray courses = jsonObj.getJSONArray("records");
 
                     for (int i = 0; i < courses.length(); i++) {
