@@ -28,7 +28,7 @@ public class AppIntro extends AppCompatActivity {
         setContentView(R.layout.appintro);
 
         courseDatabase = new DatabaseControl(this);
-
+        new getCourseData().execute();
 
         androidImageButton = (ImageButton) findViewById(R.id.image_button_android);
         androidImageButton.setOnClickListener(new View.OnClickListener() {
