@@ -51,6 +51,34 @@ public class DatabaseControl {
         return courseList;
     }
 
+    public ArrayList<Course> searchCourse(String query) {   //Not tested by should work
+        ArrayList<Course> courseList = new ArrayList<>();
+        Course course;
+        SQLiteDatabase db = myhelper.getReadableDatabase();
+        //Select all columns where column code, school, polytechnic, description has query
+        Cursor res = db.rawQuery("select * from " + myDbHelper.TABLE_NAME + " where (" +
+                myDbHelper.COURSE_CODE + "," +
+                myDbHelper.SCHOOL + "," +
+                myDbHelper.POLYTECHNIC + "," +
+                myDbHelper.COURSE_DESC +
+                 ") like '%" + query + "%'", null);
+        res.moveToFirst();
+
+        while(res.isAfterLast() == false) {
+            course = new Course(res.getString(res.getColumnIndex(myDbHelper.COURSE_CODE)),
+                    res.getString(res.getColumnIndex(myDbHelper.COURSE_NAME)),
+                    res.getString(res.getColumnIndex(myDbHelper.SCHOOL)),
+                    res.getString(res.getColumnIndex(myDbHelper.POLYTECHNIC)),
+                    res.getString(res.getColumnIndex(myDbHelper.COURSE_DESC)),
+                    res.getInt(res.getColumnIndex(myDbHelper.CUTOFF)),
+                    res.getString(res.getColumnIndex(myDbHelper.COURSE_LINK)),
+                    res.getInt(res.getColumnIndex(myDbHelper.BOOKMARKED)));
+            courseList.add(course);
+            res.moveToNext();
+        }
+        return courseList;
+    }
+
     public void updateBookmark(String code) {
 
     }
