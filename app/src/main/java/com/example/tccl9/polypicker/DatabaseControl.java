@@ -90,6 +90,7 @@ public class DatabaseControl {
         SQLiteDatabase db = myhelper.getReadableDatabase();
         Cursor res = db.rawQuery("select " + myDbHelper.POLYTECHNIC +
                                         " from " + myDbHelper.TABLE_NAME, null);
+        res.moveToFirst();
         while(res.isAfterLast() == false) {
             polytechnic = res.getString(res.getColumnIndex(myDbHelper.POLYTECHNIC));
             polytechnicsSet.add(polytechnic);
