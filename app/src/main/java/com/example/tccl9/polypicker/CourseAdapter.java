@@ -29,8 +29,8 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
     public void onBindViewHolder(CourseViewHolder holder, int position){
         Course course = courseList.get(position);
 
-        holder.textViewCName.setText(course.getSchool());
-        holder.textViewSName.setText(course.getName());
+        holder.textViewCName.setText(course.getName());
+        holder.textViewSName.setText(course.getSchool());
         holder.textViewPName.setText(course.getPolytechnic());
         holder.textViewAggCOPoint.setText(Integer.toString(course.getCutoff()));
         holder.textViewCourseID.setText(course.getCode());
