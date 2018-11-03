@@ -3,6 +3,7 @@ package com.example.tccl9.polypicker;
 public class Course {
     private String code;
     private String name;
+    private String category;
     private String school;
     private String polytechnic;
     private String description;
@@ -12,10 +13,11 @@ public class Course {
 
     public Course() { }
 
-    public Course(String code, String name, String school, String polytechnic, String description,
+    public Course(String code, String name, String category, String school, String polytechnic, String description,
                   int cutoff, String link, int bookmark) {
         this.code = code;
         this.name = name;
+        this.category = category;
         this.school = school;
         this.polytechnic = polytechnic;
         this.description = description;
@@ -38,6 +40,14 @@ public class Course {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCategory() {
+        return this.category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getSchool() {

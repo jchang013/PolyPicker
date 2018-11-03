@@ -141,9 +141,9 @@ public class ResultPage extends AppCompatActivity {
 
         courseList = new ArrayList<>();
 
-        courseList.add(new Course("N01", "Computer Engineering", "SCSE", "NTU", null, 12, "www.test.com", 0));
-        courseList.add(new Course("N02", "Computer Science", "SCSE", "NTU", null, 13, "www.test.com", 0));
-        courseList.add(new Course("N03", "Computer Whatever", "SCSE", "NTU", null, 14, "www.test.com", 0));
+        courseList.add(new Course("N01", "Computer Engineering", null, "SCSE", "NTU", null, 12, "www.test.com", 0));
+        courseList.add(new Course("N02", "Computer Science", null, "SCSE", "NTU", null, 13, "www.test.com", 0));
+        courseList.add(new Course("N03", "Computer Whatever", null, "SCSE", "NTU", null, 14, "www.test.com", 0));
 
         CourseAdapter adapter = new CourseAdapter(this, courseList);
 

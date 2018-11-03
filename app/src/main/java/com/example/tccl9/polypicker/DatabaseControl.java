@@ -14,12 +14,13 @@ public class DatabaseControl {
         myhelper = new myDbHelper(context);
     }
 
-    public void insertData(String code, String name, String school, String polytechnic, String description,
+    public void insertData(String code, String name, String category, String school, String polytechnic, String description,
                            int cutoff, String link) {
         SQLiteDatabase dbb = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(myDbHelper.COURSE_CODE, code);
         contentValues.put(myDbHelper.COURSE_NAME, name);
+        contentValues.put(myDbHelper.COURSE_CATEGORY, category);
         contentValues.put(myDbHelper.SCHOOL, school);
         contentValues.put(myDbHelper.POLYTECHNIC, polytechnic);
         contentValues.put(myDbHelper.COURSE_DESC, description);
@@ -40,6 +41,7 @@ public class DatabaseControl {
             course = new Course(res.getString(res.getColumnIndex(myDbHelper.COURSE_CODE)),
                     res.getString(res.getColumnIndex(myDbHelper.COURSE_NAME)),
                     res.getString(res.getColumnIndex(myDbHelper.SCHOOL)),
+                    res.getString(res.getColumnIndex(myDbHelper.COURSE_CATEGORY)),
                     res.getString(res.getColumnIndex(myDbHelper.POLYTECHNIC)),
                     res.getString(res.getColumnIndex(myDbHelper.COURSE_DESC)),
                     res.getInt(res.getColumnIndex(myDbHelper.CUTOFF)),
@@ -59,6 +61,7 @@ public class DatabaseControl {
         Cursor res = db.rawQuery("select * from " + myDbHelper.TABLE_NAME + " where " +
                 myDbHelper.COURSE_CODE + " like '%" + query + "%' or " +
                 myDbHelper.COURSE_NAME + " like '%" + query + "%' or " +
+                myDbHelper.COURSE_CATEGORY + " like '%" + query + "%' or " +
                 myDbHelper.SCHOOL + " like '%" + query + "%' or " +
                 myDbHelper.COURSE_DESC + " like '%" + query + "%'"
                 ,null);
@@ -67,6 +70,7 @@ public class DatabaseControl {
         while(res.isAfterLast() == false) {
             course = new Course(res.getString(res.getColumnIndex(myDbHelper.COURSE_CODE)),
                     res.getString(res.getColumnIndex(myDbHelper.COURSE_NAME)),
+                    res.getString(res.getColumnIndex(myDbHelper.COURSE_CATEGORY)),
                     res.getString(res.getColumnIndex(myDbHelper.SCHOOL)),
                     res.getString(res.getColumnIndex(myDbHelper.POLYTECHNIC)),
                     res.getString(res.getColumnIndex(myDbHelper.COURSE_DESC)),
@@ -103,19 +107,21 @@ public class DatabaseControl {
     static class myDbHelper extends SQLiteOpenHelper {
         private static final String DATABASE_NAME = "PolyPickerDB";    // Database Name
         private static final String TABLE_NAME = "course";   // Table Name
-        private static final int DATABASE_Version = 4;    // Database Version
+        private static final int DATABASE_Version = 5;    // Database Version
         private static final String COURSE_CODE = "code";   // Column I (Primary Key)
         private static final String COURSE_NAME = "name";   // Column II
-        private static final String SCHOOL = "school";      // Column III
-        private static final String POLYTECHNIC = "polytechnic"; //Column IV
-        private static final String COURSE_DESC = "description"; // Column V
-        private static final String CUTOFF = "cutoff";       // Column VI
-        private static final String COURSE_LINK = "link";   // Column VII
-        private static final String BOOKMARKED = "bookmark";    // Column VIII
+        private static final String COURSE_CATEGORY = "category";   //Column III
+        private static final String SCHOOL = "school";      // Column IV
+        private static final String POLYTECHNIC = "polytechnic"; //Column V
+        private static final String COURSE_DESC = "description"; // Column VI
+        private static final String CUTOFF = "cutoff";       // Column VII
+        private static final String COURSE_LINK = "link";   // Column VIII
+        private static final String BOOKMARKED = "bookmark";    // Column IX
 
         private static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + " (" +
                 COURSE_CODE + " VARCHAR(255) PRIMARY KEY, " +
                 COURSE_NAME + " VARCHAR(255), " +
+                COURSE_CATEGORY + " VARCHAR(255), " +
                 SCHOOL + " VARCHAR(255), " +
                 POLYTECHNIC + " VARCHAR(255), " +
                 COURSE_DESC + " VARCHAR(5000), " +
