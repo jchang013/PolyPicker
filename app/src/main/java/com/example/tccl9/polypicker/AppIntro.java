@@ -20,11 +20,14 @@ import java.util.ArrayList;
 public class AppIntro extends AppCompatActivity {
     private static final String spDataAPI = "https://data.gov.sg/api/action/datastore_search?resource_id=57b4ca93-3a50-4623-8aba-59c050ca8db9&limit=99";
     private static final String npDataAPI = "https://data.gov.sg/api/action/datastore_search?resource_id=12650e74-73d0-4797-874a-14f42899376f&limit=99";
-    private static final String rpDataAPI = "";
-    private static final String nypDataAPI = "";
-    private static final String tpDataAPI = "";
+    private static final String rpDataAPI = "https://data.gov.sg/api/action/datastore_search?resource_id=1efcbf25-2f5d-4328-8e2b-fe604a6bacd9&limit=99";
+    private static final String nypDataAPI = "https://data.gov.sg/api/action/datastore_search?resource_id=df488f8c-c9bf-4ee9-a724-6ff1df6b85df&limit=99";
+    private static final String tpDataAPI = "https://data.gov.sg/api/action/datastore_search?resource_id=57a85ec7-1a80-4907-9b4e-5b8b9d047184&limit=99";
     boolean spInDatabase = false;
     boolean npInDatabase = false;
+    boolean rpInDatabase = false;
+    boolean nypInDatabase = false;
+    boolean tpInDatabase = false;
     ImageButton androidImageButton;
     ArrayList<Course> CourseList;
     DatabaseControl courseDatabase;
@@ -38,12 +41,12 @@ public class AppIntro extends AppCompatActivity {
         if (courseDatabase.getAllCourses().isEmpty()) {
             new getCourseData().execute();  //execute for all if table is empty
         } else {
-            /*if (courseDatabase.polytechnicsInDatabase().contains("Singapore Polytechnic")) {
+            if (courseDatabase.polytechnicsInDatabase().contains("Singapore Polytechnic")) {
                 spInDatabase = true;
             }
             if (courseDatabase.polytechnicsInDatabase().contains("Ngee Ann Polytechnic")) {
                 npInDatabase = true;
-            }*/
+            }
             new getCourseData().execute();
         }
 

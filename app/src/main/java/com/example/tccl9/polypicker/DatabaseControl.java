@@ -103,7 +103,7 @@ public class DatabaseControl {
     static class myDbHelper extends SQLiteOpenHelper {
         private static final String DATABASE_NAME = "PolyPickerDB";    // Database Name
         private static final String TABLE_NAME = "course";   // Table Name
-        private static final int DATABASE_Version = 3;    // Database Version
+        private static final int DATABASE_Version = 4;    // Database Version
         private static final String COURSE_CODE = "code";   // Column I (Primary Key)
         private static final String COURSE_NAME = "name";   // Column II
         private static final String SCHOOL = "school";      // Column III
@@ -118,7 +118,7 @@ public class DatabaseControl {
                 COURSE_NAME + " VARCHAR(255), " +
                 SCHOOL + " VARCHAR(255), " +
                 POLYTECHNIC + " VARCHAR(255), " +
-                COURSE_DESC + " VARCHAR(1000), " +
+                COURSE_DESC + " VARCHAR(5000), " +
                 CUTOFF + " INTEGER, " +
                 COURSE_LINK + " VARCHAR(255), " +
                 BOOKMARKED + " INTEGER);";
