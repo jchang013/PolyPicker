@@ -53,7 +53,7 @@ public class DatabaseControl {
         return courseList;
     }
 
-    public ArrayList<Course> searchCourse(String query) {   //Query not fully working
+    public ArrayList<Course> searchCourse(String query) {
         ArrayList<Course> courseList = new ArrayList<>();
         Course course;
         SQLiteDatabase db = myhelper.getReadableDatabase();
