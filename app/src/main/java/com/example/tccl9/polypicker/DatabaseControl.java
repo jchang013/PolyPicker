@@ -51,15 +51,16 @@ public class DatabaseControl {
         return courseList;
     }
 
-    public ArrayList<Course> searchCourse(String query) {   //Not tested by should work
+    public ArrayList<Course> searchCourse(String query) {   //Query not fully working
         ArrayList<Course> courseList = new ArrayList<>();
         Course course;
         SQLiteDatabase db = myhelper.getReadableDatabase();
         //Select all columns where column code, school, polytechnic, description has query
         Cursor res = db.rawQuery("select * from " + myDbHelper.TABLE_NAME + " where (" +
-                myDbHelper.COURSE_CODE + "," +
-                myDbHelper.SCHOOL + "," +
-                myDbHelper.POLYTECHNIC + "," +
+                myDbHelper.COURSE_CODE + "+" +
+                myDbHelper.COURSE_NAME + "+" +
+                myDbHelper.SCHOOL + "+" +
+                myDbHelper.POLYTECHNIC + "+" +
                 myDbHelper.COURSE_DESC +
                  ") like '%" + query + "%'", null);
         res.moveToFirst();

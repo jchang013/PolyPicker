@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -19,11 +22,23 @@ public class BrowseCatalogue extends AppCompatActivity {
     Button filterPoly, filterCourseCat;
     ArrayList<Integer> p_items_selected = new ArrayList<>();
     ArrayList<Integer> c_items_selected = new ArrayList<>();
+    ArrayList<Course> courseList = new ArrayList<>();
+    DatabaseControl courseDatabase;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.browse_catalogue);
+
+        recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        courseDatabase = new DatabaseControl(this);
+        courseList = courseDatabase.getAllCourses();
+        //Toast.makeText(this, courseDatabase.getAllCourses().get(0).getName(), Toast.LENGTH_LONG).show();
+        CourseAdapter adapter = new CourseAdapter(this, courseDatabase.getAllCourses());
 
         filterPoly = (Button) findViewById(R.id.btnPolyFilter);
         filterPoly.setOnClickListener(new View.OnClickListener(){
@@ -147,6 +162,6 @@ public class BrowseCatalogue extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
-
+        recyclerView.setAdapter(adapter);
     }
 }
