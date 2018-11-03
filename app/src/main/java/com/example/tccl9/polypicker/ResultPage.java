@@ -4,16 +4,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.view.ViewDebug;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ResultPage extends AppCompatActivity {
@@ -38,13 +34,10 @@ public class ResultPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.resultpage);
+        setContentView(R.layout.resultpage_oriented);
 
-        Bundle myBundle = getIntent().getExtras();
+        /*Bundle myBundle = getIntent().getExtras();
         int[] quizResult = myBundle.getIntArray("PTArray");
-
-        //TextView resultView = (TextView) findViewById(R.id.result);
-        //resultView.setText(Arrays.toString(quizResult));
 
             for(int i=0; i<quizResult.length; i++) {
                 switch (quizResult[i]) {
@@ -125,15 +118,8 @@ public class ResultPage extends AppCompatActivity {
         StringBuilder sb=new StringBuilder("as"+Integer.toString(as)+"\n"+"be"+Integer.toString(be)+"\n"+"bm"+Integer.toString(bm)+"\n"+"eng"+Integer.toString(eng)+"\n");
         TextView resultView = (TextView) findViewById(R.id.result);
         //resultView.setText(sb.toString());
+        */
 
-        CheckBox bookmark = (CheckBox) findViewById(R.id.star);
-        bookmark.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked) Toast.makeText(ResultPage.this, "Favourite", Toast.LENGTH_SHORT).show();
-                else Toast.makeText(ResultPage.this, "Unfavourite", Toast.LENGTH_SHORT).show();
-            }
-        });
 
         recyclerView =(RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);

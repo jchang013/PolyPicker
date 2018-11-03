@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="16dp">
+        tools:layout_editor_absoluteY="0dp">
 
         <ImageView
             android:id="@+id/imageView3"
@@ -80,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="205dp"
+            android:layout_marginBottom="280dp"
             android:text="Your Interest and Passions allows you to enjoy what you're going to do or study."
             android:textAlignment="center"
             android:textColor="@android:color/primary_text_dark"
@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="152dp"
+            android:layout_marginBottom="215dp"
             android:text="Your Values Guides you to believe what's important."
             android:textAlignment="center"
             android:textColor="@android:color/primary_text_dark"
@@ -104,7 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="100dp"
+            android:layout_marginBottom="150dp"
             android:text="Combining both elements, we'll figure what fits well for you!"
             android:textAlignment="center"
             android:textColor="@android:color/primary_text_dark"

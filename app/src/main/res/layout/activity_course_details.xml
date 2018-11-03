@@ -20,7 +20,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="0dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/courseDet" />
+            android:src="@drawable/coursedet" />
 
         <ImageView
             android:id="@+id/img2"
@@ -29,7 +29,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="0dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/courseDet" />
+            android:src="@drawable/coursedet" />
 
         <TextView
             android:id="@+id/lbCourseName"

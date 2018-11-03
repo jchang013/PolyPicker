@@ -1,6 +1,7 @@
 package com.example.tccl9.polypicker;
 
 import android.content.DialogInterface;
+import android.content.res.Resources;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
+import android.widget.CheckBox;
 
 import java.util.ArrayList;
 
@@ -20,6 +22,7 @@ public class BrowseCatalogue extends AppCompatActivity {
     boolean [] p_checked_items = new boolean[list_Polytechnics.length];
     boolean [] c_checked_items = new boolean[list_CourseCat.length];
     Button filterPoly, filterCourseCat;
+    CheckBox bookmark;
     ArrayList<Integer> p_items_selected = new ArrayList<>();
     ArrayList<Integer> c_items_selected = new ArrayList<>();
     ArrayList<Course> courseList = new ArrayList<>();
