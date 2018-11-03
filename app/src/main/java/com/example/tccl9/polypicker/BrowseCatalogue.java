@@ -37,7 +37,7 @@ public class BrowseCatalogue extends AppCompatActivity {
 
         courseDatabase = new DatabaseControl(this);
         courseList = courseDatabase.getAllCourses();
-        //Toast.makeText(this, courseDatabase.getAllCourses().get(0).getName(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, courseDatabase.searchCourse("S34").get(0).getName(), Toast.LENGTH_LONG).show();  //test search
         CourseAdapter adapter = new CourseAdapter(this, courseDatabase.getAllCourses());
 
         filterPoly = (Button) findViewById(R.id.btnPolyFilter);

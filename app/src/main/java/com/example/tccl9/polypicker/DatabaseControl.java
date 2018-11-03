@@ -56,13 +56,12 @@ public class DatabaseControl {
         Course course;
         SQLiteDatabase db = myhelper.getReadableDatabase();
         //Select all columns where column code, school, polytechnic, description has query
-        Cursor res = db.rawQuery("select * from " + myDbHelper.TABLE_NAME + " where (" +
-                myDbHelper.COURSE_CODE + "+" +
-                myDbHelper.COURSE_NAME + "+" +
-                myDbHelper.SCHOOL + "+" +
-                myDbHelper.POLYTECHNIC + "+" +
-                myDbHelper.COURSE_DESC +
-                 ") like '%" + query + "%'", null);
+        Cursor res = db.rawQuery("select * from " + myDbHelper.TABLE_NAME + " where " +
+                myDbHelper.COURSE_CODE + " like '%" + query + "%' or " +
+                myDbHelper.COURSE_NAME + " like '%" + query + "%' or " +
+                myDbHelper.SCHOOL + " like '%" + query + "%' or " +
+                myDbHelper.COURSE_DESC + " like '%" + query + "%'"
+                ,null);
         res.moveToFirst();
 
         while(res.isAfterLast() == false) {
