@@ -1,6 +1,7 @@
 package com.example.tccl9.polypicker;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -41,7 +42,7 @@ public class BrowseCatalogue extends AppCompatActivity {
         courseDatabase = new DatabaseControl(this);
         courseList = courseDatabase.getAllCourses();
         //Toast.makeText(this, courseDatabase.searchCourse("S34").get(0).getName(), Toast.LENGTH_LONG).show();  //test search
-        CourseAdapter adapter = new CourseAdapter(this, courseDatabase.getAllCourses());
+        CourseAdapter adapter = new CourseAdapter(this, courseList);
 
         filterPoly = (Button) findViewById(R.id.btnPolyFilter);
         filterPoly.setOnClickListener(new View.OnClickListener(){
@@ -166,5 +167,16 @@ public class BrowseCatalogue extends AppCompatActivity {
             }
         });
         recyclerView.setAdapter(adapter);
+        adapter.setOnItemClickListener(new CourseAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                courseList.get(position);
+                openCourseDetails();
+            }
+        });
+    }
+    public void openCourseDetails() {
+        Intent intent = new Intent(this, CourseDetails.class);
+        startActivity(intent);
     }
 }
