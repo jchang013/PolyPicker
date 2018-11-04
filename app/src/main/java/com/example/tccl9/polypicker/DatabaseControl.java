@@ -28,6 +28,7 @@ public class DatabaseControl {
         contentValues.put(myDbHelper.COURSE_LINK, link);
         contentValues.put(myDbHelper.BOOKMARKED, 0);
         dbb.insert(myDbHelper.TABLE_NAME, null, contentValues);
+        dbb.close();
     }
 
     public ArrayList<Course> getAllCourses() {
@@ -50,6 +51,33 @@ public class DatabaseControl {
             courseList.add(course);
             res.moveToNext();
         }
+        db.close();
+        return courseList;
+    }
+
+    public ArrayList<Course> getBookmarkedCourses() {
+        ArrayList<Course> courseList = new ArrayList<>();
+        Course course;
+        SQLiteDatabase db = myhelper.getReadableDatabase();
+
+        Cursor res = db.rawQuery("select * from " + myDbHelper.TABLE_NAME +
+                                    " where " + myDbHelper.BOOKMARKED + " = ?", new String[] {"1"});
+        res.moveToFirst();
+
+        while(res.isAfterLast() == false) {
+            course = new Course(res.getString(res.getColumnIndex(myDbHelper.COURSE_CODE)),
+                    res.getString(res.getColumnIndex(myDbHelper.COURSE_NAME)),
+                    res.getString(res.getColumnIndex(myDbHelper.SCHOOL)),
+                    res.getString(res.getColumnIndex(myDbHelper.COURSE_CATEGORY)),
+                    res.getString(res.getColumnIndex(myDbHelper.POLYTECHNIC)),
+                    res.getString(res.getColumnIndex(myDbHelper.COURSE_DESC)),
+                    res.getInt(res.getColumnIndex(myDbHelper.CUTOFF)),
+                    res.getString(res.getColumnIndex(myDbHelper.COURSE_LINK)),
+                    res.getInt(res.getColumnIndex(myDbHelper.BOOKMARKED)));
+            courseList.add(course);
+            res.moveToNext();
+        }
+        db.close();
         return courseList;
     }
 
@@ -80,14 +108,19 @@ public class DatabaseControl {
             courseList.add(course);
             res.moveToNext();
         }
+        db.close();
         return courseList;
     }
 
     public void updateBookmark(Course course) {
-        SQLiteDatabase db = myhelper.getReadableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(myDbHelper.BOOKMARKED, course.getBookmark());
-        db.update(myDbHelper.TABLE_NAME, contentValues, myDbHelper.COURSE_CODE + " = ?", new String[] {course.getCode()});
+        SQLiteDatabase db = myhelper.getWritableDatabase();
+        //ContentValues contentValues = new ContentValues();
+        //contentValues.put(myDbHelper.BOOKMARKED, course.getBookmark());
+        //db.update(myDbHelper.TABLE_NAME, contentValues, myDbHelper.COURSE_CODE + " = ?", new String[] {course.getCode()});
+        db.execSQL("update " + myDbHelper.TABLE_NAME +
+                " set " + myDbHelper.BOOKMARKED + " = '" + course.getBookmark() + "' " +
+                "where " + myDbHelper.COURSE_CODE + " = '" + course.getCode() + "'");
+        db.close();
     }
 
     public ArrayList<String> polytechnicsInDatabase() {
@@ -104,6 +137,7 @@ public class DatabaseControl {
             res.moveToNext();
         }
         polytechnicsList.addAll(polytechnicsSet);
+        db.close();
         return polytechnicsList;
     }
 
