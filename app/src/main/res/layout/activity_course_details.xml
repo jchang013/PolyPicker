@@ -20,11 +20,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="0dp"
             android:scaleType="centerCrop"
-<<<<<<< HEAD
             android:src="@drawable/coursedet" />
-=======
-            android:src="@drawable/course_det" />
->>>>>>> 0a3c8868968a75bb9004a50723406e927b21dad7
 
         <ImageView
             android:id="@+id/img2"
@@ -33,11 +29,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="0dp"
             android:scaleType="centerCrop"
-<<<<<<< HEAD
             android:src="@drawable/coursedet" />
-=======
-            android:src="@drawable/course_det" />
->>>>>>> 0a3c8868968a75bb9004a50723406e927b21dad7
 
         <TextView
             android:id="@+id/lbCourseName"

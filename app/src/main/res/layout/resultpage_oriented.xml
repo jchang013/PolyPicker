@@ -40,11 +40,11 @@
             android:layout_alignRight="@+id/img"
             android:layout_marginEnd="94dp"
             android:layout_marginLeft="95dp"
-            android:layout_marginRight="94dp"
+            android:layout_marginRight="95dp"
             android:layout_marginStart="95dp"
-            android:layout_marginTop="80dp"
-            android:gravity="center"
+            android:layout_marginTop="70dp"
             android:fontFamily="@font/roboto_black"
+            android:gravity="center"
             android:text="you are\n\noriented!"
             android:textColor="@android:color/primary_text_dark"
             android:textSize="38sp" />
@@ -53,14 +53,16 @@
 
     <TextView
         android:id="@+id/whatoriented"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="297dp"
-        android:layout_toStartOf="@+id/seeCourses"
+        android:layout_width="346dp"
+        android:layout_height="267dp"
+        android:layout_above="@+id/seeCourses"
+        android:layout_centerHorizontal="true"
+        android:padding="5dp"
+        android:gravity="center"
         android:text="Lorem ipsum"
         android:textColor="@android:color/primary_text_dark"
         android:textSize="16sp"
+        android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="319dp" />
 
