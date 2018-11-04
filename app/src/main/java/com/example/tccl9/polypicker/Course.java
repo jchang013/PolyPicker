@@ -1,6 +1,7 @@
 package com.example.tccl9.polypicker;
+import java.io.Serializable;
 
-public class Course {
+public class Course implements Serializable {
     private String code;
     private String name;
     private String category;

@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.ImageView;
+import android.widget.CheckBox;
 
 import java.util.List;
 
@@ -16,6 +18,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
 
     public interface OnItemClickListener {
         void onItemClick(int position);
+        void onBookmarkClick(int position);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
@@ -38,12 +41,16 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
     @Override
     public void onBindViewHolder(CourseViewHolder holder, int position){
         Course course = courseList.get(position);
-
+        boolean bookmarked = false;
+        if (course.getBookmark() == 1) {
+            bookmarked = true;
+        }
         holder.textViewCName.setText(course.getName());
         holder.textViewSName.setText(course.getSchool());
         holder.textViewPName.setText(course.getPolytechnic());
         holder.textViewAggCOPoint.setText(Integer.toString(course.getCutoff()));
         holder.textViewCourseID.setText(course.getCode());
+        holder.bookmarkView.setChecked(bookmarked);
     }
 
     @Override
@@ -53,6 +60,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
 
     class CourseViewHolder extends RecyclerView.ViewHolder{
         TextView textViewCName, textViewSName, textViewPName, textViewAggCOPoint, textViewCourseID;
+        CheckBox bookmarkView;
 
         public CourseViewHolder(View courseView, final OnItemClickListener listener){
             super(courseView);
@@ -62,6 +70,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
             textViewSName=courseView.findViewById(R.id.schoolName);
             textViewPName=courseView.findViewById(R.id.polyName);
             textViewAggCOPoint=courseView.findViewById(R.id.aggCOPoint);
+            bookmarkView=courseView.findViewById(R.id.bookmark);
 
             courseView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -70,6 +79,18 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION) {
                             listener.onItemClick(position);
+                        }
+                    }
+                }
+            });
+
+            bookmarkView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onBookmarkClick(position);
                         }
                     }
                 }
