@@ -24,6 +24,7 @@
         <activity android:name=".Quiz" />
         <activity android:name=".ResultPage" />
         <activity android:name=".BrowseCatalogue" />
+        <activity android:name=".CourseDetails" />
         <activity android:name=".Polytechnics" />
         <activity android:name=".Bookmarks" />
         <activity android:name=".Polytechnic_Maps"></activity>
