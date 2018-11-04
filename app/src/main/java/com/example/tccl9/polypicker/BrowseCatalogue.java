@@ -14,10 +14,15 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 import android.widget.CheckBox;
+import android.app.SearchManager;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.widget.SearchView;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 
-public class BrowseCatalogue extends AppCompatActivity {
+public class BrowseCatalogue extends AppCompatActivity implements SearchView.OnQueryTextListener {
     String[] list_Polytechnics = {"Singapore Polytechnic", "Ngee Ann Polytechnic", "Temasek Polytechnic", "Nanyang Polytechnic", "Republic Polytechnic"};
     String[] list_CourseCat = {"Applied Science", "Built Environment", "Business and Management", "Engineering", "Health Science", "Humanities", "Information & Digital Technologies", "Maritime Studies", "Media & Design"};
     boolean [] p_checked_items = new boolean[list_Polytechnics.length];
@@ -29,6 +34,8 @@ public class BrowseCatalogue extends AppCompatActivity {
     ArrayList<Course> courseList = new ArrayList<>();
     DatabaseControl courseDatabase;
     RecyclerView recyclerView;
+    CourseAdapter adapter;
+    SearchView search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +49,7 @@ public class BrowseCatalogue extends AppCompatActivity {
         courseDatabase = new DatabaseControl(this);
         courseList = courseDatabase.getAllCourses();
         //Toast.makeText(this, courseDatabase.searchCourse("S34").get(0).getName(), Toast.LENGTH_LONG).show();  //test search
-        CourseAdapter adapter = new CourseAdapter(this, courseList);
+        adapter = new CourseAdapter(this, courseList);
 
         filterPoly = (Button) findViewById(R.id.btnPolyFilter);
         filterPoly.setOnClickListener(new View.OnClickListener(){
@@ -167,6 +174,9 @@ public class BrowseCatalogue extends AppCompatActivity {
             }
         });
         recyclerView.setAdapter(adapter);
+        //search = (SearchView) findViewById(R.id.searchView);
+        //search.setOnQueryTextListener(this);
+
         adapter.setOnItemClickListener(new CourseAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
@@ -194,5 +204,17 @@ public class BrowseCatalogue extends AppCompatActivity {
         Intent intent = new Intent(this, CourseDetails.class);
         intent.putExtra("course", course);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        Toast.makeText(BrowseCatalogue.this, "Searching: " + query, Toast.LENGTH_SHORT).show();
+        return false;
+    }
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        String text = newText;
+        //adapter.filter(text);
+        return false;
     }
 }
