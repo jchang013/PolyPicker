@@ -170,13 +170,14 @@ public class BrowseCatalogue extends AppCompatActivity {
         adapter.setOnItemClickListener(new CourseAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                courseList.get(position);
-                openCourseDetails();
+                Course course = courseList.get(position);
+                openCourseDetails(course);
             }
         });
     }
-    public void openCourseDetails() {
+    public void openCourseDetails(Course course) {
         Intent intent = new Intent(this, CourseDetails.class);
+        intent.putExtra("course", course);
         startActivity(intent);
     }
 }
