@@ -114,12 +114,12 @@ public class DatabaseControl {
 
     public void updateBookmark(Course course) {
         SQLiteDatabase db = myhelper.getWritableDatabase();
-        //ContentValues contentValues = new ContentValues();
-        //contentValues.put(myDbHelper.BOOKMARKED, course.getBookmark());
-        //db.update(myDbHelper.TABLE_NAME, contentValues, myDbHelper.COURSE_CODE + " = ?", new String[] {course.getCode()});
-        db.execSQL("update " + myDbHelper.TABLE_NAME +
-                " set " + myDbHelper.BOOKMARKED + " = '" + course.getBookmark() + "' " +
-                "where " + myDbHelper.COURSE_CODE + " = '" + course.getCode() + "'");
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(myDbHelper.BOOKMARKED, course.getBookmark());
+        db.update(myDbHelper.TABLE_NAME, contentValues, myDbHelper.COURSE_CODE + " = ?", new String[] {course.getCode()});
+        //db.rawQuery("update " + myDbHelper.TABLE_NAME +
+          //      " set " + myDbHelper.BOOKMARKED + " = ?'" + course.getBookmark() + "' " +
+            //    "where " + myDbHelper.COURSE_CODE + " = ?'" + course.getCode() + "'", new String[] {course.getBookmark(), course.getCode()});
         db.close();
     }
 
