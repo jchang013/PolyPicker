@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,6 +11,8 @@
         android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
 
@@ -36,15 +39,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/img"
-            android:layout_alignRight="@+id/img"
-            android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="95dp"
-            android:layout_marginLeft="95dp"
-            android:layout_marginTop="80dp"
+            android:layout_alignRight="@+id/img"
             android:layout_marginEnd="94dp"
+            android:layout_marginLeft="95dp"
             android:layout_marginRight="94dp"
+            android:layout_marginStart="95dp"
+            android:layout_marginTop="80dp"
             android:fontFamily="@font/roboto_black"
             android:text="CourseName"
             android:textColor="@android:color/primary_text_dark"
@@ -54,9 +57,8 @@
             android:id="@+id/lbCourseCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/lbCourseName"
+            android:layout_above="@+id/lbPoly"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="26dp"
             android:text="(S53)"
             android:textColor="@android:color/primary_text_dark"
             android:textSize="18sp"
@@ -74,15 +76,26 @@
             android:textColor="@android:color/primary_text_dark"
             android:textSize="16sp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lbSchoolName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lbPoly"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-25dp"
+            android:text="School Name"
+            android:textColor="@android:color/primary_text_dark"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
     </RelativeLayout>
 
     <TextView
         android:id="@+id/lbL1R4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="20dp"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/btnMoreDet"
         android:text="L1R4 Cut-Off: 15"
         android:textColor="@android:color/primary_text_dark"
         android:textSize="16sp"
@@ -93,9 +106,8 @@
         android:id="@+id/lbCourseDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="10dp"
+        android:layout_alignStart="@+id/lbL1R4"
+        android:layout_below="@+id/lbL1R4"
         android:text="Course Description"
         android:textColor="@android:color/primary_text_dark"
         android:textSize="16sp"
@@ -106,14 +118,9 @@
         android:id="@+id/btnMoreDet"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_alignStart="@+id/btnNP"
-        android:layout_alignLeft="@+id/btnNP"
-        android:layout_alignTop="@+id/btnTP"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="28dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/buttonshape"
         android:padding="0dp"
         android:text="More Details"
@@ -124,26 +131,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ScrollView
-        android:id="@+id/scrollView3"
-        android:layout_width="395dp"
-        android:layout_height="283dp"
-        android:paddingLeft="32dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="380dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textCourseDesc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="LOREM IPSUM"
-                android:textColor="@android:color/primary_text_dark"
-                android:textSize="16sp" />
-        </LinearLayout>
-    </ScrollView>
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/textCourseDesc"
+        android:layout_width="match_parent"
+        android:layout_height="211dp"
+        android:layout_alignLeft="@+id/lbL1R4"
+        android:layout_below="@+id/lbCourseDesc"
+        android:text="LOREM IPSUM"
+        android:textColor="@android:color/primary_text_dark"
+        android:textSize="16sp"
+        tools:layout_width="380dp" />
+</RelativeLayout>
