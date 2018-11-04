@@ -179,12 +179,12 @@ public class BrowseCatalogue extends AppCompatActivity {
                 Course course = courseList.get(position);
                 if (course.getBookmark() == 0) {
                     course.setBookmark(1);
-                    //courseDatabase.updateBookmark();
+                    courseDatabase.updateBookmark(course);
                     Toast.makeText(BrowseCatalogue.this, "Course bookmarked", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     course.setBookmark(0);
-                    //courseDatabase.updateBookmark();
+                    courseDatabase.updateBookmark(course);
                     Toast.makeText(BrowseCatalogue.this, "Course remove from bookmark", Toast.LENGTH_SHORT).show();
                 }
             }

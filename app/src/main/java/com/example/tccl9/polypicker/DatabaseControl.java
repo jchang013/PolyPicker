@@ -83,8 +83,11 @@ public class DatabaseControl {
         return courseList;
     }
 
-    public void updateBookmark(String code) {
-
+    public void updateBookmark(Course course) {
+        SQLiteDatabase db = myhelper.getReadableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(myDbHelper.BOOKMARKED, course.getBookmark());
+        db.update(myDbHelper.TABLE_NAME, contentValues, myDbHelper.COURSE_CODE + " = ?", new String[] {course.getCode()});
     }
 
     public ArrayList<String> polytechnicsInDatabase() {
