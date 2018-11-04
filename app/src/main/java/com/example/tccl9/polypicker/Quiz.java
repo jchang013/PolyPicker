@@ -24,7 +24,7 @@ public class Quiz extends AppCompatActivity{
     private static int Qnum = 0;
     private static int countAnswered=1;
     public String quizResult;
-    public final int mQLength = 4;
+    public final int mQLength = 14;
     public int[] ResultArr = new int[mQLength];
 
     @Override
