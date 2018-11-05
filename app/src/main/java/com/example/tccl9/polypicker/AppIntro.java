@@ -33,6 +33,7 @@ public class AppIntro extends AppCompatActivity {
     ImageButton androidImageButton;
     ArrayList<Course> CourseList;
     DatabaseControl courseDatabase;
+    List<String[]> polyList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,8 @@ public class AppIntro extends AppCompatActivity {
 
         InputStream inputStream = getResources().openRawResource(R.raw.poly);
         CSVFile csvFile = new CSVFile(inputStream);
-        List<String[]> polyList = csvFile.read();
+        polyList = csvFile.read();
+        String[] test = polyList.get(1);
 
         courseDatabase = new DatabaseControl(this);
         if (courseDatabase.getAllCourses().isEmpty()) {
@@ -71,6 +73,7 @@ public class AppIntro extends AppCompatActivity {
                 openStartPage();
             }
         });
+        Toast.makeText(AppIntro.this, "Testing Course code: "+test[4], Toast.LENGTH_LONG).show();
     }
     public void openStartPage(){
         Intent intent = new Intent(this, StartPage.class);
@@ -122,9 +125,19 @@ public class AppIntro extends AppCompatActivity {
                         String code = course.getString("course_code");
                         String name = course.getString("course_name");
                         String category = null; //add in method to return category
+                        int cutoff = 0;         //add in method to return cutoff point with course code later
+                        for (String[] poly : polyList) {
+                            if (poly[2] == code) {
+                                category = poly[4];
+                                if (poly[5] != "-") {
+                                    cutoff = Integer.parseInt(poly[5]);
+                                }
+                                break;
+                            }
+                        }
                         String school = course.getString("school");
                         String description = course.getString("course_description");
-                        int cutoff = 0;         //add in method to return cutoff point with course code later
+
                         String link = course.getString("reference");
                         courseDatabase.insertData(code, name, category, school, polytechnic, description, cutoff, link);
                     }
@@ -171,11 +184,20 @@ public class AppIntro extends AppCompatActivity {
                         String code = course.getString("course_code");
                         String name = course.getString("course_name");
                         String category = null; //add in method to return category
+                        int cutoff = 0;         //add in method to return cutoff point with course code later
+                        for (String[] poly : polyList) {
+                            if (poly[2] == code) {
+                                category = poly[4];
+                                if (poly[5] != "-") {
+                                    cutoff = Integer.parseInt(poly[5]);
+                                }
+                                break;
+                            }
+                        }
                         String school = course.getString("school");
                         //String description = course.getString("course_description");
-                        int cutoff = 0;         //add in method to return cutoff point with course code later
                         //String link = course.getString("reference");
-                        courseDatabase.insertData(code, name, school, category, polytechnic, null, cutoff, null);
+                        courseDatabase.insertData(code, name, category, school, polytechnic, null, cutoff, null);
                     }
 
                 } catch (final JSONException e) {
@@ -219,10 +241,19 @@ public class AppIntro extends AppCompatActivity {
                         JSONObject course = courses.getJSONObject(i);
                         String code = course.getString("jae_course_code");
                         String name = course.getString("course_title");
-                        String category = null;
+                        String category = null; //add in method to return category
+                        int cutoff = 0;         //add in method to return cutoff point with course code later
+                        for (String[] poly : polyList) {
+                            if (poly[2] == code) {
+                                category = poly[4];
+                                if (poly[5] != "-") {
+                                    cutoff = Integer.parseInt(poly[5]);
+                                }
+                                break;
+                            }
+                        }
                         //String school = course.getString("school");
                         //String description = course.getString("course_description");
-                        int cutoff = 0;         //add in method to return cutoff point with course code later
                         String link = course.getString("url");
                         courseDatabase.insertData(code, name, category,null, polytechnic, null, cutoff, link);
                     }
@@ -268,10 +299,19 @@ public class AppIntro extends AppCompatActivity {
                         JSONObject course = courses.getJSONObject(i);
                         String code = course.getString("moe_course_code");
                         String name = course.getString("course_name");
-                        String category = null;
+                        String category = null; //add in method to return category
+                        int cutoff = 0;         //add in method to return cutoff point with course code later
+                        for (String[] poly : polyList) {
+                            if (poly[2] == code) {
+                                category = poly[4];
+                                if (poly[5] != "-") {
+                                    cutoff = Integer.parseInt(poly[5]);
+                                }
+                                break;
+                            }
+                        }
                         String school = course.getString("school");
                         String description = course.getString("course_description");
-                        int cutoff = 0;         //add in method to return cutoff point with course code later
                         String link = course.getString("reference");
                         courseDatabase.insertData(code, name, category, school, polytechnic, description, cutoff, link);
                     }
