@@ -57,53 +57,53 @@ public class BrowseCatalogue extends AppCompatActivity implements SearchView.OnQ
         filterPoly.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
 
-                AlertDialog.Builder mybuilder = new AlertDialog.Builder((BrowseCatalogue.this));
-                mybuilder.setTitle("Select Polytechnic");
-                mybuilder.setMultiChoiceItems(list_Polytechnics, p_checked_items, new DialogInterface.OnMultiChoiceClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int index, boolean isChecked) {
-                        if(isChecked) {
-                            p_items_selected.add(index);
-                        }
-                        else{
-                            p_items_selected.remove(index);
-                        }
-                    }});
+        AlertDialog.Builder mybuilder = new AlertDialog.Builder((BrowseCatalogue.this));
+        mybuilder.setTitle("Select Polytechnic");
+        mybuilder.setMultiChoiceItems(list_Polytechnics, p_checked_items, new DialogInterface.OnMultiChoiceClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int index, boolean isChecked) {
+                if(isChecked) {
+                    p_items_selected.add(index);
+                }
+                else{
+                    p_items_selected.remove(index);
+                }
+            }});
 
-                mybuilder.setCancelable(false);
-                mybuilder.setPositiveButton("OK", new DialogInterface.OnClickListener(){
-                     @Override
-                    public void onClick(DialogInterface dialogInterface, int index){
-                         String items = "";
-                         for(int i = 0; i< p_items_selected.size(); i++){
-                             items=items+list_Polytechnics[p_items_selected.get(i)];
-                             if(i!= p_items_selected.size()-1){
-                                 items=items+",";
-                             }
-                         }
-                         if(p_items_selected.size()>0) {
-                             TextView view_polyFilter = (TextView) findViewById(R.id.selectedPoly);
-                             view_polyFilter.setVisibility(View.VISIBLE);
-                             view_polyFilter.setText(String.valueOf(p_items_selected.size()) + " selected");
-                             filterPoly.setBackgroundResource(R.drawable.buttonshape);
-                         }
-                         else{
-                             TextView view_polyFilter = (TextView) findViewById(R.id.selectedPoly);
-                             view_polyFilter.setVisibility(View.INVISIBLE);
-                             filterPoly.setBackgroundResource(R.drawable.buttonshape_notselected);
-                         }
+        mybuilder.setCancelable(false);
+        mybuilder.setPositiveButton("OK", new DialogInterface.OnClickListener(){
+             @Override
+            public void onClick(DialogInterface dialogInterface, int index){
+                 String items = "";
+                 for(int i = 0; i< p_items_selected.size(); i++){
+                     items=items+list_Polytechnics[p_items_selected.get(i)];
+                     if(i!= p_items_selected.size()-1){
+                         items=items+",";
                      }
-                });
+                 }
+                 if(p_items_selected.size()>0) {
+                     TextView view_polyFilter = (TextView) findViewById(R.id.selectedPoly);
+                     view_polyFilter.setVisibility(View.VISIBLE);
+                     view_polyFilter.setText(String.valueOf(p_items_selected.size()) + " selected");
+                     filterPoly.setBackgroundResource(R.drawable.buttonshape);
+                 }
+                 else{
+                     TextView view_polyFilter = (TextView) findViewById(R.id.selectedPoly);
+                     view_polyFilter.setVisibility(View.INVISIBLE);
+                     filterPoly.setBackgroundResource(R.drawable.buttonshape_notselected);
+                 }
+             }
+        });
 
-                mybuilder.setNegativeButton("Back", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialogInterface, int i){
-                        dialogInterface.dismiss();
-                    }
-                });
-                AlertDialog dialog = mybuilder.create();
-                dialog.show();
+        mybuilder.setNegativeButton("Back", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogInterface, int i){
+                dialogInterface.dismiss();
             }
         });
+        AlertDialog dialog = mybuilder.create();
+        dialog.show();
+        }
+    });
 
 
         filterCourseCat = (Button) findViewById(R.id.btnCourseCatFilter);
