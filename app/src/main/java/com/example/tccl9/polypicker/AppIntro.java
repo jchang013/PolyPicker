@@ -11,11 +11,13 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 import android.util.Log;
+import java.io.InputStream;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
+import java.util.List;
 
 public class AppIntro extends AppCompatActivity {
     private static final String spDataAPI = "https://data.gov.sg/api/action/datastore_search?resource_id=57b4ca93-3a50-4623-8aba-59c050ca8db9&limit=99";
@@ -36,6 +38,10 @@ public class AppIntro extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.appintro);
+
+        InputStream inputStream = getResources().openRawResource(R.raw.poly);
+        CSVFile csvFile = new CSVFile(inputStream);
+        List<String[]> polyList = csvFile.read();
 
         courseDatabase = new DatabaseControl(this);
         if (courseDatabase.getAllCourses().isEmpty()) {
