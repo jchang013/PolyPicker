@@ -219,13 +219,13 @@ public class BrowseCatalogue extends AppCompatActivity implements SearchView.OnQ
         adapter.setOnItemClickListener(new CourseAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                Course course = courseList.get(position);
+                Course course = searchList.get(position);
                 openCourseDetails(course);
             }
 
             @Override
             public void onBookmarkClick(int position) {
-                Course course = courseList.get(position);
+                Course course = searchList.get(position);
                 if (course.getBookmark() == 0) {
                     course.setBookmark(1);
                     courseDatabase.updateBookmark(course);
@@ -251,13 +251,13 @@ public class BrowseCatalogue extends AppCompatActivity implements SearchView.OnQ
         adapter.setOnItemClickListener(new CourseAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                Course course = courseList.get(position);
+                Course course = searchList.get(position);
                 openCourseDetails(course);
             }
 
             @Override
             public void onBookmarkClick(int position) {
-                Course course = courseList.get(position);
+                Course course = searchList.get(position);
                 if (course.getBookmark() == 0) {
                     course.setBookmark(1);
                     courseDatabase.updateBookmark(course);
