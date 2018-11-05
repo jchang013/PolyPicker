@@ -33,6 +33,7 @@ public class BrowseCatalogue extends AppCompatActivity implements SearchView.OnQ
     ArrayList<Integer> p_items_selected = new ArrayList<>();
     ArrayList<Integer> c_items_selected = new ArrayList<>();
     ArrayList<Course> courseList = new ArrayList<>();
+    ArrayList<Course> searchList = new ArrayList<>();
     DatabaseControl courseDatabase;
     RecyclerView recyclerView;
     CourseAdapter adapter;
@@ -210,12 +211,18 @@ public class BrowseCatalogue extends AppCompatActivity implements SearchView.OnQ
     @Override
     public boolean onQueryTextSubmit(String query) {
         Toast.makeText(BrowseCatalogue.this, "Searching: " + query, Toast.LENGTH_SHORT).show();
+        searchList = courseDatabase.searchCourse(query);
+        adapter = new CourseAdapter(this, searchList);
+        recyclerView.setAdapter(adapter);
         return false;
     }
     @Override
     public boolean onQueryTextChange(String newText) {
         String text = newText;
         //adapter.filter(text);
+        searchList = courseDatabase.searchCourse(text);
+        adapter = new CourseAdapter(this, searchList);
+        recyclerView.setAdapter(adapter);
         return false;
     }
 }
