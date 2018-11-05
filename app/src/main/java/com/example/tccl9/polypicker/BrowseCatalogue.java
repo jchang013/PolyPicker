@@ -178,6 +178,12 @@ public class BrowseCatalogue extends AppCompatActivity implements SearchView.OnQ
         recyclerView.setAdapter(adapter);
         search = (SearchView) findViewById(R.id.searchView);
         search.setOnQueryTextListener(this);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                search.setIconified(false);
+            }
+        });
 
         adapter.setOnItemClickListener(new CourseAdapter.OnItemClickListener() {
             @Override
