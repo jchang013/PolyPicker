@@ -129,19 +129,19 @@ public class AppIntro extends AppCompatActivity {
                         for (int j = 1; j < polyList.size(); j++) {
                             String[] poly = polyList.get(j);
                             if (poly[2].equals(code)) {
-                                category = poly[4];
+                                category = poly[4].toLowerCase();
                                 if (!poly[5].equals("-")) {
                                     cutoff = Integer.parseInt(poly[5]);
                                 }
                                 break;
                             }
                         }
-
+                        String category_capitalized = capitalizeWord(category);
                         String school = course.getString("school");
                         String description = course.getString("course_description");
 
                         String link = course.getString("reference");
-                        courseDatabase.insertData(code, name, category, school, polytechnic, description, cutoff, link);
+                        courseDatabase.insertData(code, name, category_capitalized, school, polytechnic, description, cutoff, link);
                     }
 
                 } catch (final JSONException e) {
@@ -198,10 +198,11 @@ public class AppIntro extends AppCompatActivity {
                                 break;
                             }
                         }
+                        String category_capitalized = capitalizeWord(category);
                         String school = course.getString("school");
                         //String description = course.getString("course_description");
                         //String link = course.getString("reference");
-                        courseDatabase.insertData(code, name, category, school, polytechnic, null, cutoff, null);
+                        courseDatabase.insertData(code, name, category_capitalized, school, polytechnic, null, cutoff, null);
                     }
 
                 } catch (final JSONException e) {
@@ -258,10 +259,11 @@ public class AppIntro extends AppCompatActivity {
                                 break;
                             }
                         }
+                        String category_capitalized = capitalizeWord(category);
                         //String school = course.getString("school");
                         //String description = course.getString("course_description");
                         String link = course.getString("url");
-                        courseDatabase.insertData(code, name, category,null, polytechnic, null, cutoff, link);
+                        courseDatabase.insertData(code, name, category_capitalized,null, polytechnic, null, cutoff, link);
                     }
 
                 } catch (final JSONException e) {
@@ -318,10 +320,11 @@ public class AppIntro extends AppCompatActivity {
                                 break;
                             }
                         }
+                        String category_capitalized = capitalizeWord(category);
                         String school = course.getString("school");
                         String description = course.getString("course_description");
                         String link = course.getString("reference");
-                        courseDatabase.insertData(code, name, category, school, polytechnic, description, cutoff, link);
+                        courseDatabase.insertData(code, name, category_capitalized, school, polytechnic, description, cutoff, link);
                     }
 
                 } catch (final JSONException e) {
@@ -350,5 +353,17 @@ public class AppIntro extends AppCompatActivity {
                 });
             }
         }
+    }
+    public static String capitalizeWord(String str){
+        if (str == null)
+            return null;
+        String words[]=str.split("\\s");
+        String capitalizeWord="";
+        for(String w:words){
+            String first=w.substring(0,1);
+            String afterfirst=w.substring(1);
+            capitalizeWord+=first.toUpperCase()+afterfirst+" ";
+        }
+        return capitalizeWord.trim();
     }
 }
