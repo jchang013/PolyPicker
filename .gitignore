@@ -9,3 +9,7 @@
 /captures
 .externalNativeBuild
 .idea/dictionaries/NTU_user.xml
+.idea/vcs.xml
+.idea/misc.xml
+.idea/caches/build_file_checksums.ser
+.idea/assetWizardSettings.xml
