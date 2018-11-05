@@ -14,11 +14,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 import android.widget.CheckBox;
-import android.app.SearchManager;
 import android.support.v4.view.MenuItemCompat;
-import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.app.SearchManager;
+import android.widget.SearchView;
+import android.widget.SearchView.OnQueryTextListener;
 
 import java.util.ArrayList;
 
@@ -174,8 +175,8 @@ public class BrowseCatalogue extends AppCompatActivity implements SearchView.OnQ
             }
         });
         recyclerView.setAdapter(adapter);
-        //search = (SearchView) findViewById(R.id.searchView);
-        //search.setOnQueryTextListener(this);
+        search = (SearchView) findViewById(R.id.searchView);
+        search.setOnQueryTextListener(this);
 
         adapter.setOnItemClickListener(new CourseAdapter.OnItemClickListener() {
             @Override
