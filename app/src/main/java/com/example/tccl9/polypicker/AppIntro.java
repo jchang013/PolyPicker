@@ -73,7 +73,7 @@ public class AppIntro extends AppCompatActivity {
                 openStartPage();
             }
         });
-        Toast.makeText(AppIntro.this, "Testing Course code: "+test[4], Toast.LENGTH_LONG).show();
+        Toast.makeText(AppIntro.this, "Testing Course code: "+test[2], Toast.LENGTH_LONG).show();
     }
     public void openStartPage(){
         Intent intent = new Intent(this, StartPage.class);
@@ -126,15 +126,17 @@ public class AppIntro extends AppCompatActivity {
                         String name = course.getString("course_name");
                         String category = null; //add in method to return category
                         int cutoff = 0;         //add in method to return cutoff point with course code later
-                        for (String[] poly : polyList) {
-                            if (poly[2] == code) {
+                        for (int j = 1; j < polyList.size(); j++) {
+                            String[] poly = polyList.get(j);
+                            if (poly[2].equals(code)) {
                                 category = poly[4];
-                                if (poly[5] != "-") {
+                                if (!poly[5].equals("-")) {
                                     cutoff = Integer.parseInt(poly[5]);
                                 }
                                 break;
                             }
                         }
+
                         String school = course.getString("school");
                         String description = course.getString("course_description");
 
@@ -152,6 +154,8 @@ public class AppIntro extends AppCompatActivity {
                                     Toast.LENGTH_LONG).show();
                         }
                     });
+                } catch (final NumberFormatException e) {
+
                 }
             }
             else {
@@ -186,9 +190,9 @@ public class AppIntro extends AppCompatActivity {
                         String category = null; //add in method to return category
                         int cutoff = 0;         //add in method to return cutoff point with course code later
                         for (String[] poly : polyList) {
-                            if (poly[2] == code) {
+                            if (poly[2].equals(code)) {
                                 category = poly[4];
-                                if (poly[5] != "-") {
+                                if (!poly[5].equals("-")) {
                                     cutoff = Integer.parseInt(poly[5]);
                                 }
                                 break;
@@ -210,6 +214,8 @@ public class AppIntro extends AppCompatActivity {
                                     Toast.LENGTH_LONG).show();
                         }
                     });
+                } catch (final NumberFormatException e) {
+
                 }
             }
             else {
@@ -244,9 +250,9 @@ public class AppIntro extends AppCompatActivity {
                         String category = null; //add in method to return category
                         int cutoff = 0;         //add in method to return cutoff point with course code later
                         for (String[] poly : polyList) {
-                            if (poly[2] == code) {
+                            if (poly[2].equals(code)) {
                                 category = poly[4];
-                                if (poly[5] != "-") {
+                                if (!poly[5].equals("-")) {
                                     cutoff = Integer.parseInt(poly[5]);
                                 }
                                 break;
@@ -268,6 +274,8 @@ public class AppIntro extends AppCompatActivity {
                                     Toast.LENGTH_LONG).show();
                         }
                     });
+                } catch (final NumberFormatException e) {
+
                 }
             }
             else {
@@ -302,9 +310,9 @@ public class AppIntro extends AppCompatActivity {
                         String category = null; //add in method to return category
                         int cutoff = 0;         //add in method to return cutoff point with course code later
                         for (String[] poly : polyList) {
-                            if (poly[2] == code) {
+                            if (poly[2].equals(code)) {
                                 category = poly[4];
-                                if (poly[5] != "-") {
+                                if (!poly[5].equals("-")) {
                                     cutoff = Integer.parseInt(poly[5]);
                                 }
                                 break;
@@ -326,6 +334,8 @@ public class AppIntro extends AppCompatActivity {
                                     Toast.LENGTH_LONG).show();
                         }
                     });
+                } catch (final NumberFormatException e) {
+
                 }
             }
             else {
