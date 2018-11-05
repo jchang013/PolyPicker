@@ -202,11 +202,6 @@ public class BrowseCatalogue extends AppCompatActivity implements SearchView.OnQ
             }
         });
     }
-    public void openCourseDetails(Course course) {
-        Intent intent = new Intent(this, CourseDetails.class);
-        intent.putExtra("course", course);
-        startActivity(intent);
-    }
 
     @Override
     public boolean onQueryTextSubmit(String query) {
@@ -270,5 +265,10 @@ public class BrowseCatalogue extends AppCompatActivity implements SearchView.OnQ
             }
         });
         return false;
+    }
+    public void openCourseDetails(Course course) {
+        Intent intent = new Intent(this, CourseDetails.class);
+        intent.putExtra("course", course);
+        startActivity(intent);
     }
 }
