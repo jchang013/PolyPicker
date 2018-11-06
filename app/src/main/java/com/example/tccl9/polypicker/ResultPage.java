@@ -1,13 +1,16 @@
 package com.example.tccl9.polypicker;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +44,8 @@ public class ResultPage extends AppCompatActivity {
     CheckBox bookmark;
     List<Course> courseList;
     RecyclerView recyclerView;
+    Button seeRecommended;
+    String orientation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -290,49 +295,58 @@ public class ResultPage extends AppCompatActivity {
             StringBuilder resultOriented = new StringBuilder("Applied Science");
             resultView.setText("you are\n"+resultOriented+"\noriented!");
             orientedDesc.setText(descAS);
+            orientation = "Applied Science";
         }
         else if(cE==highestC) {
             StringBuilder resultOriented = new StringBuilder("Environmental");
             resultView.setText("you are\n"+resultOriented+"\noriented!");
             orientedDesc.setText(descE);
+            orientation = "Built Environment";
         }
         else if(cBMGT==highestC) {
             StringBuilder resultOriented = new StringBuilder("Business");
             resultView.setText("you are\n"+resultOriented+"\noriented!");
             orientedDesc.setText(descBMGT);
+            orientation = "Business & Management";
         }
         else if(cENG==highestC) {
             StringBuilder resultOriented = new StringBuilder("Engineering");
             resultView.setText("you are\n"+resultOriented+"\noriented!");
             orientedDesc.setText(descENG);
+            orientation = "Engineering";
         }
         else if(cHS==highestC) {
             StringBuilder resultOriented = new StringBuilder("Health Science");
             resultView.setText("you are\n"+resultOriented+"\noriented!");
             orientedDesc.setText(descHS);
+            orientation = "Health Science";
         }
         else if(cHUMANS==highestC) {
             StringBuilder resultOriented = new StringBuilder("Humanities");
             resultView.setText("you are\n"+resultOriented+"\noriented!");
             orientedDesc.setText(descHUMANS);
+            orientation = "Humanities";
         }
         else if(cIT==highestC) {
             StringBuilder resultOriented = new StringBuilder("IT");
             resultView.setText("you are\n"+resultOriented+"\noriented!");
             orientedDesc.setText(descIT);
+            orientation = "Information & Digital Technologies";
         }
         else if(cMARITIME==highestC) {
             StringBuilder resultOriented = new StringBuilder("Maritime");
             resultView.setText("you are\n"+resultOriented+"\noriented!");
             orientedDesc.setText(descMARITIME);
+            orientation = "Maritime Studies";
         }
         else if(cADM==highestC) {
             StringBuilder resultOriented = new StringBuilder("Arts and Design");
             resultView.setText("you are\n"+resultOriented+"\noriented!");
             orientedDesc.setText(descADM);
+            orientation = "Media & Design";
         }
 
-
+        /*
         recyclerView =(RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -346,7 +360,19 @@ public class ResultPage extends AppCompatActivity {
         CourseAdapter adapter = new CourseAdapter(this, courseList);
 
         recyclerView.setAdapter(adapter);
-        //Add recommended page
+        */
+        seeRecommended = (Button) findViewById(R.id.seeCourses);
+        seeRecommended.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openRecommendedCourses(orientation);
+            }
+        });
 
+    }
+    public void openRecommendedCourses(String orientation){
+        Intent intent = new Intent(this, RecommendedCourses.class);
+        intent.putExtra("orientation", orientation);
+        startActivity(intent);
     }
 }
