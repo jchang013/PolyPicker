@@ -7,11 +7,11 @@
     tools:context=".StartPage">
 
     <RelativeLayout
-        android:layout_width="414dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/np_splash"
-        tools:layout_editor_absoluteX="-3dp"
-        tools:layout_editor_absoluteY="381dp">
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <TextView
             android:id="@+id/lbNext"
@@ -44,7 +44,7 @@
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="220dp"
+            android:layout_width="match_parent"
             android:layout_height="220dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
