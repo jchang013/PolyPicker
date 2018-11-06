@@ -1,5 +1,6 @@
 package com.example.tccl9.polypicker;
 
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -67,17 +68,23 @@ public class AppIntro extends AppCompatActivity {
             new getCourseData().execute();
         }
 
-        androidImageButton = (ImageButton) findViewById(R.id.image_button_android);
-        androidImageButton.setOnClickListener(new View.OnClickListener() {
+        //androidImageButton = (ImageButton) findViewById(R.id.image_button_android);
+        /*androidImageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 openStartPage();
             }
-        });
+        });*/
+        openStartPage();
         Toast.makeText(AppIntro.this, "Testing Course code: "+test[2], Toast.LENGTH_LONG).show();
     }
     public void openStartPage(){
-        Intent intent = new Intent(this, StartPage.class);
-        startActivity(intent);
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable(){
+            public void run(){
+                Intent intent = new Intent(AppIntro.this, StartPage.class);
+                startActivity(intent);
+            }
+        }, 5000);
     }
 
 
