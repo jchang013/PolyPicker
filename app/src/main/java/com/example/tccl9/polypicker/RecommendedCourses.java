@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ public class RecommendedCourses extends AppCompatActivity {
     ArrayList<Course> courseList;
     RecyclerView recyclerView;
     CourseAdapter adapter;
+    TextView category;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,8 @@ public class RecommendedCourses extends AppCompatActivity {
 
         Intent intent = getIntent();
         String orientation = (String)intent.getSerializableExtra("orientation");
+        category = (TextView) findViewById(R.id.lbRecommendedCourses);
+        category.setText("Category: " + orientation);
 
         recyclerView = (RecyclerView)findViewById(R.id.lbRecCourseCat);
         recyclerView.setHasFixedSize(true);
