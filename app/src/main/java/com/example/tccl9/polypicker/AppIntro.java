@@ -75,7 +75,7 @@ public class AppIntro extends AppCompatActivity {
             }
         });*/
         openStartPage();
-        Toast.makeText(AppIntro.this, "Testing Course code: "+test[2], Toast.LENGTH_LONG).show();
+        //Toast.makeText(AppIntro.this, "Testing Course code: "+test[2], Toast.LENGTH_LONG).show();
     }
     public void openStartPage(){
         Handler handler = new Handler();
@@ -84,7 +84,7 @@ public class AppIntro extends AppCompatActivity {
                 Intent intent = new Intent(AppIntro.this, StartPage.class);
                 startActivity(intent);
             }
-        }, 5000);
+        }, 2500);
     }
 
 
