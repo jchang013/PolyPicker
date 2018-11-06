@@ -55,7 +55,7 @@ public class Course implements Serializable {
         return this.school;
     }
 
-    public void setSchool() {
+    public void setSchool(String school) {
         this.school = school;
     }
 
@@ -87,7 +87,7 @@ public class Course implements Serializable {
         return this.link;
     }
 
-    public void setLink() {
+    public void setLink(String link) {
         this.link = link;
     }
 

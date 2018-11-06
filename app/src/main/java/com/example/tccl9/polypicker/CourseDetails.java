@@ -27,17 +27,32 @@ public class CourseDetails extends AppCompatActivity {
             }
         });
 
-        TextView textViewCName, textViewSName, textViewPName, textViewAggCOPoint, textViewCourseID, textViewCourseDesc;
+        TextView textViewCName, textViewSName, textViewPName,
+                textViewAggCOPoint, textViewCourseID, textViewCourseDesc, textViewCourseCluster;
         textViewCName = (TextView) findViewById(R.id.lbCourseName);
         textViewSName = (TextView) findViewById(R.id.lbSchoolName);
+        textViewCourseCluster = (TextView) findViewById(R.id.lbCourseCluster);
         textViewPName = (TextView) findViewById(R.id.lbPoly);
         textViewCourseID = (TextView) findViewById(R.id.lbCourseCode);
         textViewAggCOPoint = (TextView) findViewById(R.id.lbL1R4);
         textViewCourseDesc = (TextView) findViewById(R.id.lbCourseDesc);
 
+        if (course.getSchool() == null) {
+            course.setSchool("N/A");
+        }
+        if (course.getCategory() == null) {
+            course.setCategory("N/A");
+        }
+        if (cutoff.equals("0")) {
+            cutoff = "N/A";
+        }
+        if (course.getDescription() == null) {
+            course.setDescription("N/A");
+        }
         textViewCName.setText(course.getName());
         textViewSName.setText("Faculty: " + course.getSchool());
         textViewPName.setText(course.getPolytechnic());
+        textViewCourseCluster.setText("Course Cluster: " + course.getCategory());
         textViewCourseID.setText("Course ID: " + course.getCode());
         textViewAggCOPoint.setText("L1R4: " + cutoff);
         textViewCourseDesc.setText(course.getDescription());
