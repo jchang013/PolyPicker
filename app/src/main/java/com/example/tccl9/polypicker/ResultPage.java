@@ -346,6 +346,7 @@ public class ResultPage extends AppCompatActivity {
         CourseAdapter adapter = new CourseAdapter(this, courseList);
 
         recyclerView.setAdapter(adapter);
+        //Add recommended page
 
     }
 }
