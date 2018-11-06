@@ -7,14 +7,20 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.CheckBox;
+import android.widget.Toast;
 
 public class CourseDetails extends AppCompatActivity {
     Button moreDetails;
+    CheckBox bookmarkView;
+    boolean bookmarked = false;
+    DatabaseControl courseDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_details);
 
+        courseDatabase = new DatabaseControl(this);
         Intent intent = getIntent();
         final Course course = (Course)intent.getSerializableExtra("course");
         String cutoff = new Integer(course.getCutoff()).toString();
@@ -36,6 +42,26 @@ public class CourseDetails extends AppCompatActivity {
         textViewCourseID = (TextView) findViewById(R.id.lbCourseCode);
         textViewAggCOPoint = (TextView) findViewById(R.id.lbL1R4);
         textViewCourseDesc = (TextView) findViewById(R.id.lbCourseDesc);
+        bookmarkView = findViewById(R.id.checkBox);
+        if (course.getBookmark() == 1) {
+            bookmarked = true;
+        }
+        bookmarkView.setChecked(bookmarked);
+        bookmarkView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (course.getBookmark() == 0) {
+                    course.setBookmark(1);
+                    courseDatabase.updateBookmark(course);
+                    Toast.makeText(CourseDetails.this, "Course bookmarked", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    course.setBookmark(0);
+                    courseDatabase.updateBookmark(course);
+                    Toast.makeText(CourseDetails.this, "Course remove from bookmark", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         if (course.getSchool() == null) {
             course.setSchool("N/A");
