@@ -22,7 +22,7 @@ public class Question {
             {"Zootopia", "The Intern", "Interstellar", "Lalaland"},
             {"Tony Stark the Philantropist (Iron man)", "Bruce Wayne the Businessamn (Batman)", "Dr Bruce Banner the Scientist (Hulk)", "Peter Parker the Photographer (Spiderman)"},
             {"Cooking dash, Smurfs\' village, Pokemon GO", "Monopoly Deal, Clash Royale", "Minecraft, Plants vs Zombies", "Monument Valley, Colouring Book, Dots"},
-            {"Volunteer at a hospital, nursing or old folks\' home", "Sell items on Carousell, or at SCAPE and flea market", "Explore ArtScience Museum, Gardens by the Bay and Science Centre", ""},
+            {"Volunteer at a hospital, nursing or old folks\' home", "Sell items on Carousell, or at SCAPE and flea market", "Explore ArtScience Museum, Gardens by the Bay and Science Centre", "Get inspiration at National Gallery or watch a play at the Esplanade"},
             {"Telegram, WhatsApp, Messenger", "News, Health & Fitness Apps", "Instagram, Snapchat, Pinterest", "AutoCAD, Adobe, Procreate"},
             {"Friendly, caring and sociable", "Competitive, driven and enjoys taking intiative", "Logical, precise and detailed", "Artistic and expressive"},
             {"Language, Character & Citizenship Education and Values in action", "Mathematics, Business Studies", "Mathematics, Sciences, Science & Technology", "Humanities and the Arts such as Literature, Geography and History"},

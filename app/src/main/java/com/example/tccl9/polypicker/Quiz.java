@@ -112,7 +112,7 @@ public class Quiz extends AppCompatActivity{
             quizResult = Arrays.toString(ResultArr);
         }
 
-        Toast.makeText(this, Arrays.toString(ResultArr), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, Arrays.toString(ResultArr), Toast.LENGTH_SHORT).show();
     }
 
     public int[] getResult(){
