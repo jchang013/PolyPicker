@@ -23,11 +23,12 @@
         <activity android:name=".QuizStartPage" />
         <activity android:name=".Quiz" />
         <activity android:name=".ResultPage" />
-        <activity android:name=".BrowseCatalogue" />
+        <activity android:name=".BrowseCatalogue"
+            android:windowSoftInputMode="adjustNothing"/>
         <activity android:name=".CourseDetails" />
         <activity android:name=".Polytechnics" />
         <activity android:name=".Bookmarks" />
-        <activity android:name=".Polytechnic_Maps"></activity>
+        <activity android:name=".Polytechnic_Maps"/>
     </application>
 
 </manifest>
