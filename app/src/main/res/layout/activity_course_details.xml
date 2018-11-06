@@ -117,7 +117,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="32dp"
         android:background="@drawable/buttonshape"
-        android:padding="0dp"
         android:text="More Details"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
