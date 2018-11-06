@@ -12,90 +12,83 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
 
-        <ImageView
-            android:id="@+id/img"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
+        <CheckBox
+            android:id="@+id/bookmark3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="0dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/coursedet" />
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/bookmarkstatechange"
+            android:button="@android:color/transparent" />
 
         <ImageView
             android:id="@+id/img2"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="0dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/coursedet" />
+            android:src="@drawable/course_det" />
 
         <TextView
             android:id="@+id/lbCourseName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/img"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_alignRight="@+id/img"
-            android:layout_marginEnd="94dp"
-            android:layout_marginLeft="95dp"
-            android:layout_marginRight="94dp"
-            android:layout_marginStart="95dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:layout_marginTop="80dp"
             android:fontFamily="@font/roboto_black"
-            android:text="CourseName"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:text="Human Resource Management with Psychology"
+            android:textAlignment="center"
             android:textColor="@android:color/primary_text_dark"
-            android:textSize="38sp" />
+            android:textSize="28sp"
+            app:fontFamily="@font/roboto_black" />
 
         <TextView
             android:id="@+id/lbCourseCode"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@+id/lbPoly"
+            android:layout_alignTop="@+id/img2"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="224dp"
+            android:layout_marginBottom="-249dp"
             android:text="(S53)"
-            android:textColor="@android:color/primary_text_dark"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/lbPoly"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/img2"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="25dp"
-            android:text="Singapore Polytechnic"
             android:textAlignment="center"
             android:textColor="@android:color/primary_text_dark"
             android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/lbSchoolName"
-            android:layout_width="wrap_content"
+            android:id="@+id/lbPoly"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/lbPoly"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="-25dp"
-            android:text="School Name"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="254dp"
+            android:text="Singapore Polytechnic"
+            android:textAlignment="center"
             android:textColor="@android:color/primary_text_dark"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:textSize="18sp" />
+
     </RelativeLayout>
 
     <TextView
         android:id="@+id/lbL1R4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toStartOf="@+id/btnMoreDet"
+        android:layout_width="157dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/lbSchoolName"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
         android:text="L1R4 Cut-Off: 15"
         android:textColor="@android:color/primary_text_dark"
         android:textSize="16sp"
@@ -103,14 +96,16 @@
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
 
     <TextView
-        android:id="@+id/lbCourseDesc"
+        android:id="@+id/lbCourseDescTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/lbL1R4"
         android:layout_below="@+id/lbL1R4"
-        android:text="Course Description"
+        android:layout_alignStart="@+id/lbL1R4"
+        android:layout_marginTop="10dp"
+        android:text="Course Description:"
         android:textColor="@android:color/primary_text_dark"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lbL1R4" />
 
@@ -132,13 +127,31 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textCourseDesc"
+        android:id="@+id/lbCourseDesc"
         android:layout_width="match_parent"
-        android:layout_height="211dp"
-        android:layout_alignLeft="@+id/lbL1R4"
-        android:layout_below="@+id/lbCourseDesc"
-        android:text="LOREM IPSUM"
+        android:layout_height="252dp"
+        android:layout_below="@+id/relativeLayout2"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="105dp"
+        android:layout_marginRight="20dp"
+        android:text="Text goes here"
+        android:textColor="@android:color/primary_text_dark"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/lbSchoolName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativeLayout2"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="18dp"
+        android:text="Faculty of Something"
         android:textColor="@android:color/primary_text_dark"
         android:textSize="16sp"
-        tools:layout_width="380dp" />
+        android:textStyle="bold" />
 </RelativeLayout>
