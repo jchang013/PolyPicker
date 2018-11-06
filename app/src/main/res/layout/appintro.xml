@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:background="#6e6eff"
         android:contentDescription="@string/start_image_button"
-        android:scaleType="centercrop"
+        android:scaleType="fitCenter"
         android:src="@drawable/background">
 
     </ImageButton>
