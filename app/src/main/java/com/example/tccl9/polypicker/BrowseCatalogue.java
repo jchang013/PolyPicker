@@ -33,7 +33,7 @@ public class BrowseCatalogue extends AppCompatActivity implements SearchView.OnQ
     ArrayList<Integer> p_items_selected = new ArrayList<>();
     ArrayList<Integer> c_items_selected = new ArrayList<>();
     ArrayList<Course> courseList = new ArrayList<>();
-    ArrayList<Course> searchList = new ArrayList<>();
+    //ArrayList<Course> searchList = new ArrayList<>();
     DatabaseControl courseDatabase;
     RecyclerView recyclerView;
     CourseAdapter adapter;
@@ -194,64 +194,17 @@ public class BrowseCatalogue extends AppCompatActivity implements SearchView.OnQ
     @Override
     public boolean onQueryTextSubmit(String query) {
         Toast.makeText(BrowseCatalogue.this, "Searching: " + query, Toast.LENGTH_SHORT).show();
-        searchList = courseDatabase.searchCourse(query);
-        adapter = new CourseAdapter(this, searchList);
-        recyclerView.setAdapter(adapter);
-        //May change below into a function
-        adapter.setOnItemClickListener(new CourseAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                Course course = searchList.get(position);
-                openCourseDetails(course);
-            }
+        courseList = courseDatabase.searchCourse(query);
+        displayCourseCards(courseList);
 
-            @Override
-            public void onBookmarkClick(int position) {
-                Course course = searchList.get(position);
-                if (course.getBookmark() == 0) {
-                    course.setBookmark(1);
-                    courseDatabase.updateBookmark(course);
-                    Toast.makeText(BrowseCatalogue.this, "Course bookmarked", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    course.setBookmark(0);
-                    courseDatabase.updateBookmark(course);
-                    Toast.makeText(BrowseCatalogue.this, "Course remove from bookmark", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
         return false;
     }
     @Override
     public boolean onQueryTextChange(String newText) {
         String text = newText;
         //adapter.filter(text);
-        searchList = courseDatabase.searchCourse(text);
-        adapter = new CourseAdapter(this, searchList);
-        recyclerView.setAdapter(adapter);
-
-        adapter.setOnItemClickListener(new CourseAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                Course course = searchList.get(position);
-                openCourseDetails(course);
-            }
-
-            @Override
-            public void onBookmarkClick(int position) {
-                Course course = searchList.get(position);
-                if (course.getBookmark() == 0) {
-                    course.setBookmark(1);
-                    courseDatabase.updateBookmark(course);
-                    Toast.makeText(BrowseCatalogue.this, "Course bookmarked", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    course.setBookmark(0);
-                    courseDatabase.updateBookmark(course);
-                    Toast.makeText(BrowseCatalogue.this, "Course remove from bookmark", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+        courseList = courseDatabase.searchCourse(text);
+        displayCourseCards(courseList);
         return false;
     }
     public void openCourseDetails(Course course) {
