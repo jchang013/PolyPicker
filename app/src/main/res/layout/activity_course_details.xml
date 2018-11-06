@@ -93,7 +93,7 @@
         android:layout_alignParentLeft="true"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="41dp"
+        android:layout_marginTop="59dp"
         android:text="L1R4 Cut-Off: 15"
         android:textColor="@android:color/primary_text_dark"
         android:textSize="18sp"
