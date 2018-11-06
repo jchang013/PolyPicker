@@ -36,28 +36,28 @@
                 android:layout_marginTop="10dp"
                 android:text="Course Name"
                 android:textColor="@android:color/black"
-                android:textSize="18sp"
+                android:textSize="17sp"
                 android:textStyle="bold"
                 app:fontFamily="@font/roboto_black" />
 
             <TextView
                 android:id="@+id/courseID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
                 android:layout_alignStart="@+id/courseName"
                 android:layout_centerVertical="true"
-                android:text="courseID"
+                android:text="C99"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/schoolName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="262dp"
+                android:layout_height="30dp"
                 android:layout_centerVertical="true"
-                android:layout_toEndOf="@+id/polyName"
-                android:layout_toRightOf="@+id/polyName"
+                android:layout_toEndOf="@+id/courseID"
                 android:text="School Name"
+                android:textAlignment="center"
                 android:textColor="#6E6EFF"
                 android:textSize="12sp" />
 
@@ -67,19 +67,19 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignStart="@+id/courseName"
-                android:layout_marginBottom="11dp"
+                android:layout_marginBottom="10dp"
                 android:text="polyName"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/aggCOPoint"
-                android:layout_width="wrap_content"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
+                android:layout_alignEnd="@+id/separator"
                 android:layout_alignTop="@+id/polyName"
-                android:layout_marginEnd="21dp"
-                android:text="aggCOPoint"
+                android:text="99"
+                android:textAlignment="center"
                 android:textColor="#777799"
                 android:textSize="18sp" />
 
