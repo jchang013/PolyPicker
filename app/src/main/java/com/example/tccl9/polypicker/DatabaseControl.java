@@ -14,9 +14,10 @@ public class DatabaseControl {
         myhelper = new myDbHelper(context);
     }
 
-    public void insertData(String code, String name, String category, String school, String polytechnic, String description,
+    public void insertData(String code, String name, String category, String school,
+                           String polytechnic, String description,
                            int cutoff, String link) {
-        SQLiteDatabase dbb = myhelper.getWritableDatabase();
+        SQLiteDatabase db = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(myDbHelper.COURSE_CODE, code);
         contentValues.put(myDbHelper.COURSE_NAME, name);
@@ -27,8 +28,8 @@ public class DatabaseControl {
         contentValues.put(myDbHelper.CUTOFF, cutoff);
         contentValues.put(myDbHelper.COURSE_LINK, link);
         contentValues.put(myDbHelper.BOOKMARKED, 0);
-        dbb.insert(myDbHelper.TABLE_NAME, null, contentValues);
-        dbb.close();
+        db.insert(myDbHelper.TABLE_NAME, null, contentValues);
+        db.close();
     }
 
     public ArrayList<Course> getAllCourses() {
@@ -139,9 +140,6 @@ public class DatabaseControl {
 
     public void updateBookmark(Course course) {
         SQLiteDatabase db = myhelper.getWritableDatabase();
-        //ContentValues contentValues = new ContentValues();
-        //contentValues.put(myDbHelper.BOOKMARKED, course.getBookmark());
-        //db.update(myDbHelper.TABLE_NAME, contentValues, myDbHelper.COURSE_CODE + " = ?", new String[] {course.getCode()});
         db.execSQL("update " + myDbHelper.TABLE_NAME +
                 " set " + myDbHelper.BOOKMARKED + " = '" + course.getBookmark() + "' " +
                 " where " + myDbHelper.COURSE_CODE + " = '" + course.getCode() + "'");
