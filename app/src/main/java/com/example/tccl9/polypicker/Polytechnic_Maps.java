@@ -1,8 +1,11 @@
 package com.example.tccl9.polypicker;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.media.Image;
 import android.net.Uri;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -158,6 +161,78 @@ public class Polytechnic_Maps extends AppCompatActivity {
             }
         });
 
+        Button call = (Button) findViewById(R.id.btnCall);
+        call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextView viewLoc = (TextView) findViewById(R.id.lbPolyLocation);
+                String location = (String) viewLoc.getText();
+                String number="";
+
+
+                    if(location.contains("535 Clementi Rd, Singapore 599489")) {
+                        number="tel: 6463 1233";
+                    }
+                    else if(location.equals("500 Dover Rd, Singapore 139651")) {
+                        number="tel: 6775 1133";
+                    }
+                    else if(location.equals("180 Ang Mo Kio Ave 8, Singapore 569830")) {
+                        number="tel: 6451 5115";
+                    }
+                    else if(location.equals("21 Tampines Ave 1, Singapore 529757")) {
+                        number="tel: 6780 4201";
+                    }
+                    else if(location.equals("9 Woodlands Ave 9, Singapore 738964")) {
+                        number="tel: 6510 3000";
+                    }
+                Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                callIntent.setData(Uri.parse(number));
+                startActivity(callIntent);
+
+                if (ActivityCompat.checkSelfPermission(Polytechnic_Maps.this,
+                        Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    return;
+                }
+            }
+        });
+
+        Button email = (Button) findViewById(R.id.btnMail);
+        email.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                TextView viewLoc = (TextView) findViewById(R.id.lbPolyLocation);
+                String location = (String) viewLoc.getText();
+                String emailAddr="";
+
+                if(location.contains("535 Clementi Rd, Singapore 599489")) {
+                    emailAddr="admissions@np.edu.sg";
+                }
+                else if(location.equals("500 Dover Rd, Singapore 139651")) {
+                    emailAddr="contactus@sp.edu.sg";
+                }
+                else if(location.equals("180 Ang Mo Kio Ave 8, Singapore 569830")) {
+                    emailAddr="askNYP@nyp.edu.sg";
+                }
+                else if(location.equals("21 Tampines Ave 1, Singapore 529757")) {
+                    emailAddr="admissions@tp.edu.sg";
+                }
+                else if(location.equals("9 Woodlands Ave 9, Singapore 738964")) {
+                    emailAddr="RP-Admissions-Office@rp.edu.sg";
+                }
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.parse(emailAddr));
+
+                final String subject = "";
+                final String body = "";
+
+                final String uriText = "mailto:" + Uri.encode(emailAddr) +
+                        "?subject=" + Uri.encode(subject) +
+                        "&body=" + Uri.encode(body);
+
+                emailIntent.setData(Uri.parse(uriText));
+                startActivity(emailIntent);
+
+            }
+        });
 
     }
 }
