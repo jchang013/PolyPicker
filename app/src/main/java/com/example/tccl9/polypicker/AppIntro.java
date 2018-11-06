@@ -191,7 +191,7 @@ public class AppIntro extends AppCompatActivity {
                         int cutoff = 0;         //add in method to return cutoff point with course code later
                         for (String[] poly : polyList) {
                             if (poly[2].equals(code)) {
-                                category = poly[4];
+                                category = poly[4].toLowerCase();
                                 if (!poly[5].equals("-")) {
                                     cutoff = Integer.parseInt(poly[5]);
                                 }
@@ -252,7 +252,7 @@ public class AppIntro extends AppCompatActivity {
                         int cutoff = 0;         //add in method to return cutoff point with course code later
                         for (String[] poly : polyList) {
                             if (poly[2].equals(code)) {
-                                category = poly[4];
+                                category = poly[4].toLowerCase();
                                 if (!poly[5].equals("-")) {
                                     cutoff = Integer.parseInt(poly[5]);
                                 }
@@ -313,7 +313,7 @@ public class AppIntro extends AppCompatActivity {
                         int cutoff = 0;         //add in method to return cutoff point with course code later
                         for (String[] poly : polyList) {
                             if (poly[2].equals(code)) {
-                                category = poly[4];
+                                category = poly[4].toLowerCase();
                                 if (!poly[5].equals("-")) {
                                     cutoff = Integer.parseInt(poly[5]);
                                 }
