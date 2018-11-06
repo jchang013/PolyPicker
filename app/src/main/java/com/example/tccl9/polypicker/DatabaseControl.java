@@ -42,8 +42,8 @@ public class DatabaseControl {
         while(res.isAfterLast() == false) {
             course = new Course(res.getString(res.getColumnIndex(myDbHelper.COURSE_CODE)),
                     res.getString(res.getColumnIndex(myDbHelper.COURSE_NAME)),
-                    res.getString(res.getColumnIndex(myDbHelper.SCHOOL)),
                     res.getString(res.getColumnIndex(myDbHelper.COURSE_CATEGORY)),
+                    res.getString(res.getColumnIndex(myDbHelper.SCHOOL)),
                     res.getString(res.getColumnIndex(myDbHelper.POLYTECHNIC)),
                     res.getString(res.getColumnIndex(myDbHelper.COURSE_DESC)),
                     res.getInt(res.getColumnIndex(myDbHelper.CUTOFF)),
@@ -68,8 +68,8 @@ public class DatabaseControl {
         while(res.isAfterLast() == false) {
             course = new Course(res.getString(res.getColumnIndex(myDbHelper.COURSE_CODE)),
                     res.getString(res.getColumnIndex(myDbHelper.COURSE_NAME)),
-                    res.getString(res.getColumnIndex(myDbHelper.SCHOOL)),
                     res.getString(res.getColumnIndex(myDbHelper.COURSE_CATEGORY)),
+                    res.getString(res.getColumnIndex(myDbHelper.SCHOOL)),
                     res.getString(res.getColumnIndex(myDbHelper.POLYTECHNIC)),
                     res.getString(res.getColumnIndex(myDbHelper.COURSE_DESC)),
                     res.getInt(res.getColumnIndex(myDbHelper.CUTOFF)),
