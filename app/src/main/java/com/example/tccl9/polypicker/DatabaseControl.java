@@ -112,6 +112,31 @@ public class DatabaseControl {
         return courseList;
     }
 
+    public ArrayList<Course> getCoursesAboveCutoff(int cutoff) {
+        ArrayList<Course> courseList = new ArrayList<>();
+        Course course;
+        SQLiteDatabase db = myhelper.getReadableDatabase();
+        Cursor res = db.rawQuery("select * from " + myDbHelper.TABLE_NAME +
+                                    " where " + myDbHelper.CUTOFF + " >= " + cutoff, null);
+        res.moveToFirst();
+
+        while(res.isAfterLast() == false) {
+            course = new Course(res.getString(res.getColumnIndex(myDbHelper.COURSE_CODE)),
+                    res.getString(res.getColumnIndex(myDbHelper.COURSE_NAME)),
+                    res.getString(res.getColumnIndex(myDbHelper.COURSE_CATEGORY)),
+                    res.getString(res.getColumnIndex(myDbHelper.SCHOOL)),
+                    res.getString(res.getColumnIndex(myDbHelper.POLYTECHNIC)),
+                    res.getString(res.getColumnIndex(myDbHelper.COURSE_DESC)),
+                    res.getInt(res.getColumnIndex(myDbHelper.CUTOFF)),
+                    res.getString(res.getColumnIndex(myDbHelper.COURSE_LINK)),
+                    res.getInt(res.getColumnIndex(myDbHelper.BOOKMARKED)));
+            courseList.add(course);
+            res.moveToNext();
+        }
+        db.close();
+        return courseList;
+    }
+
     public void updateBookmark(Course course) {
         SQLiteDatabase db = myhelper.getWritableDatabase();
         //ContentValues contentValues = new ContentValues();

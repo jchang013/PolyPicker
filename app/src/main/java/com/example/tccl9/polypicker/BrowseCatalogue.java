@@ -165,6 +165,33 @@ public class BrowseCatalogue extends AppCompatActivity implements SearchView.OnQ
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 copText.setText("Cut-Off Point: " + progress);
                 copText.setVisibility(View.VISIBLE);
+                courseList = courseDatabase.getCoursesAboveCutoff(progress);
+                adapter = new CourseAdapter(BrowseCatalogue.this, courseList);
+                recyclerView.setAdapter(adapter);
+
+                adapter.setOnItemClickListener(new CourseAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(int position) {
+                        Course course = courseList.get(position);
+                        openCourseDetails(course);
+                    }
+
+                    @Override
+                    public void onBookmarkClick(int position) {
+                        Course course = courseList.get(position);
+                        if (course.getBookmark() == 0) {
+                            course.setBookmark(1);
+                            courseDatabase.updateBookmark(course);
+                            Toast.makeText(BrowseCatalogue.this, "Course bookmarked", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            course.setBookmark(0);
+                            courseDatabase.updateBookmark(course);
+                            Toast.makeText(BrowseCatalogue.this, "Course remove from bookmark", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
             }
 
             @Override
@@ -173,6 +200,7 @@ public class BrowseCatalogue extends AppCompatActivity implements SearchView.OnQ
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
+
             }
         });
         recyclerView.setAdapter(adapter);
