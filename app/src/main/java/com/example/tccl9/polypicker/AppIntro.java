@@ -68,12 +68,12 @@ public class AppIntro extends AppCompatActivity {
             new getCourseData().execute();
         }
 
-        //androidImageButton = (ImageButton) findViewById(R.id.image_button_android);
-        /*androidImageButton.setOnClickListener(new View.OnClickListener() {
+        androidImageButton = (ImageButton) findViewById(R.id.image_button_android);
+        androidImageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 openStartPage();
             }
-        });*/
+        });
         openStartPage();
         //Toast.makeText(AppIntro.this, "Testing Course code: "+test[2], Toast.LENGTH_LONG).show();
     }
